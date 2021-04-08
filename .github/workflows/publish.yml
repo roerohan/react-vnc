@@ -32,7 +32,6 @@ jobs:
         run: |
           npm install
           git submodule update --init --recursive
-          npm run build:lib
 
       - if: steps.check.outputs.versionChanged == 'true'
         run: npm publish --access public
