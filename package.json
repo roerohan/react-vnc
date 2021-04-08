@@ -2,11 +2,12 @@
   "name": "react-vnc",
   "version": "0.1.0",
   "description": "A React Component to connect to a websockified VNC client using noVNC.",
+  "private": "true",
   "author": "roerohan",
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.modern.js",
-  "source": "src/index.tsx",
+  "main": "dist/js/index.js",
+  "module": "dist/js/index.mjs",
+  "source": "src/lib/index.tsx",
   "engines": {
     "node": ">=10"
   },
@@ -29,7 +30,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:lib": "rollup -c"
   },
   "eslintConfig": {
     "extends": [
@@ -48,5 +50,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.2.1",
+    "rollup": "^2.44.0"
   }
 }
