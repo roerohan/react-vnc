@@ -24,10 +24,11 @@ jobs:
           failBuild: false
           tagFormat: v${version}
       
-      - name: Run npm install
+      - name: Echo variables
         run: |
           echo "versionChanged- ${{steps.check.outputs.versionChanged}}"
           echo "releaseVersion- ${{steps.check.outputs.releaseVersion}}"
+
       - if: steps.check.outputs.versionChanged == 'true'
         run: |
           git submodule update --init --recursive
