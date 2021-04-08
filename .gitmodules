@@ -1,0 +1,3 @@
+[submodule "src/noVNC"]
+	path = src/noVNC
+	url = git@github.com:dyte-in/noVNC.git
