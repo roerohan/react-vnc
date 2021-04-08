@@ -30,8 +30,8 @@ jobs:
           echo "releaseVersion- ${{steps.check.outputs.releaseVersion}}"
       - if: steps.check.outputs.versionChanged == 'true'
         run: |
-          npm install
           git submodule update --init --recursive
+          npm install
 
       - if: steps.check.outputs.versionChanged == 'true'
         run: npm publish --access public
