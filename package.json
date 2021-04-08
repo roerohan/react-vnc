@@ -7,14 +7,20 @@
   "main": "dist/index.js",
   "source": "src/lib/index.tsx",
   "typings": "dist/types/lib/index.d.ts",
-  "keywords": [],
+  "keywords": [
+    "vnc",
+    "noVNC",
+    "react-vnc",
+    "websocket",
+    "websockify"
+  ],
   "engines": {
     "node": ">=10"
   },
   "files": [
     "dist/"
   ],
-  "repository": "roerohan/react-vnc",
+  "repository": "https://github.com/roerohan/react-vnc/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
