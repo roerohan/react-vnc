@@ -36,7 +36,7 @@
     "eject": "react-scripts eject",
     "build:lib": "rollup -c",
     "prepack": "npm run build:lib",
-    "publish": "npm run build:lib && cp README.md LICENSE dist/ && cd dist && npm publish"
+    "publish": "npm run build:lib && node prepublish.js && cp README.md LICENSE dist/ && cd dist && npm publish"
   },
   "eslintConfig": {
     "extends": [
