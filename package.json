@@ -1,7 +1,16 @@
 {
   "name": "react-vnc",
   "version": "0.1.0",
-  "private": true,
+  "description": "A React Component to connect to a websockified VNC client using noVNC.",
+  "author": "roerohan",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.modern.js",
+  "source": "src/index.tsx",
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": "roerohan/react-vnc",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
