@@ -1,6 +1,6 @@
 {
   "name": "react-vnc",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A React Component to connect to a websockified VNC client using noVNC.",
   "author": "roerohan",
   "license": "MIT",
@@ -35,7 +35,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:lib": "rollup -c",
-    "prepack": "npm run build:lib"
+    "prepack": "npm run build:lib",
+    "publish": "npm run build:lib && cp README.md LICENSE dist/ && cd dist && npm publish"
   },
   "eslintConfig": {
     "extends": [
