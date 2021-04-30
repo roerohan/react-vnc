@@ -23,7 +23,6 @@ fs.writeFileSync('./dist/package.json', JSON.stringify({
 	main: pkg.main.replace(/dist\//ig, ''),
 	typings: pkg.typings.replace(/dist\//ig, ''),
 	publishConfig: pkg.publishConfig,
-    keywords: pkg.keywords,
 	dependencies,
 	peerDependencies,
 }, null, 4));
