@@ -15,7 +15,7 @@
     <a href="https://github.com/roerohan/react-vnc"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/roerohan/react-vnc">View Demo</a>
+    <a href="https://roerohan.github.io/react-vnc/">View Demo</a>
     ·
     <a href="https://github.com/roerohan/react-vnc/issues">Report Bug</a>
     ·
