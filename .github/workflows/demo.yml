@@ -19,6 +19,8 @@ jobs:
 
     - name: npm install, lint
       run: |
+        git submodule update --init --recursive
+        export GENERATE_SOURCEMAP=false
         npm install
         npm run lint:fix
         npm run build
