@@ -4,6 +4,7 @@ import RFB from '../noVNC/core/rfb';
 interface Props {
     url: string;
     style?: object;
+    className?: string;
     viewOnly?: boolean;
     focusOnClick?: boolean;
     clipViewport?: boolean;
@@ -24,6 +25,7 @@ export default function VncScreen(props: Props) {
     const {
         url,
         style,
+        className,
         viewOnly,
         focusOnClick,
         clipViewport,
@@ -69,13 +71,14 @@ export default function VncScreen(props: Props) {
         setRfb(_rfb);
 
         _rfb.addEventListener('connect', () => {
-            console.log('Connected to remote browser.');
+            console.info('Connected to remote VNC.');
             setLoading(false);
         });
 
         _rfb.addEventListener('disconnect', () => {
-            console.log('Disconnected from remote browser.');
-            setTimeout(connect, 3000);
+            const retryDuration = 3000;
+            console.info(`Disconnected from remote VNC, retrying in ${retryDuration / 1000} seconds.`);
+            setTimeout(connect, retryDuration);
             setLoading(true);
         });
 
@@ -85,7 +88,7 @@ export default function VncScreen(props: Props) {
         });
 
         _rfb.addEventListener('desktopname', (e: { detail: { name: string } }) => {
-            console.log(`Desktop name is ${e.detail.name}`);
+            console.info(`Desktop name is ${e.detail.name}`);
         });
     };
 
@@ -122,6 +125,7 @@ export default function VncScreen(props: Props) {
         <>
             <div
                 style={style}
+                className={className}
                 ref={screen}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
