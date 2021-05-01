@@ -30,6 +30,7 @@
 
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
+  * [Demo](#demo)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
@@ -47,6 +48,13 @@
 [noVNC](https://github.com/novnc/noVNC) is a VNC client web application using which you can view a VNC stream directly on a browser. It uses [websockify](https://github.com/novnc/websockify) to convert the VNC stream into a websocket stream, which can be viewed on a browser. This library provides a `React` component wrapper around the `noVNC` web client.
 
 Using this library, you can easily display a VNC stream on a page of your web application. [Here](#usage) is an example.
+
+### Demo
+
+A demo website using the `react-vnc` library is hosted on [https://roerohan.github.io/react-vnc/](https://roerohan.github.io/react-vnc/). The source for this application can be found in [src/App.tsx](./src/App.tsx).
+
+<img src="./public/demo.png" alt="demo" width="800">
+
 
 ### Built With
 
@@ -110,8 +118,8 @@ function App() {
       scaleViewport
       background="#000000"
       style={{
-        width: '100vw',
-        height: '100vh',
+        width: '75vw',
+        height: '75vh',
       }}
     />
   );
