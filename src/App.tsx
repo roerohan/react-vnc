@@ -45,7 +45,7 @@ function App() {
                 }}
               />
             )
-            : <div>VNC URL not provided</div>
+            : <div>VNC URL not provided.</div>
         }
       </div>
     </>
