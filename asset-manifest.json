@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/react-vnc/static/css/main.f75dbd95.chunk.css",
+    "main.js": "/react-vnc/static/js/main.d04e36b1.chunk.js",
+    "runtime-main.js": "/react-vnc/static/js/runtime-main.71a73738.js",
+    "static/js/2.6b7c8e88.chunk.js": "/react-vnc/static/js/2.6b7c8e88.chunk.js",
+    "static/js/3.96ad90dc.chunk.js": "/react-vnc/static/js/3.96ad90dc.chunk.js",
+    "index.html": "/react-vnc/index.html",
+    "static/js/2.6b7c8e88.chunk.js.LICENSE.txt": "/react-vnc/static/js/2.6b7c8e88.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.71a73738.js",
+    "static/js/2.6b7c8e88.chunk.js",
+    "static/css/main.f75dbd95.chunk.css",
+    "static/js/main.d04e36b1.chunk.js"
+  ]
+}
