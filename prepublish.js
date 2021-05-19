@@ -10,7 +10,7 @@ const {
 
 const peerDependencies = {
 	react: '>=16.0.0',
-	'react-scripts': reactScripts,
+	'react-scripts': '>=4.0.0',
 	'react-dom': '>=16.0.0',
 };
 
