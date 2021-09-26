@@ -1,0 +1,44 @@
+name: Update submodules
+
+on:
+  schedule:
+    - cron: "* * * * *"
+
+jobs:
+  submodule-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+
+      - name: npm install
+        run: |
+          npm install
+
+      - name: Setup git config
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Update submodules
+        run: |
+          git submodule update --remote
+
+      - name: Check for build errors
+        run: |
+          npm run build:lib
+
+      - name: Commit and push
+        run: |
+          git add .
+          git diff --quiet && git diff --staged --quiet || git commit -m "fix(submodules): submodules were updated"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
