@@ -12,3 +12,7 @@ package-lock.json
 prepublish.js
 rollup.config.js
 tsconfig.json
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md
+package.json.bak
+public/
