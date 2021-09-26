@@ -1,3 +1,10 @@
+## [0.2.4](https://github.com/roerohan/react-vnc/compare/v0.2.3...v0.2.4) (2021-09-26)
+
+
+### Bug Fixes
+
+* **release:** do not publish tarball inside the dist folder ([#12](https://github.com/roerohan/react-vnc/issues/12)) ([844affd](https://github.com/roerohan/react-vnc/commit/844affd009e279b04fbcdcab62cc644fa4c189d7))
+
 ## [0.2.3](https://github.com/roerohan/react-vnc/compare/v0.2.2...v0.2.3) (2021-09-26)
 
 
