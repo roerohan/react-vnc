@@ -49,6 +49,7 @@ function App() {
                   width: '75vw',
                   height: '75vh',
                 }}
+                debug
               />
             )
             : <div>VNC URL not provided.</div>
