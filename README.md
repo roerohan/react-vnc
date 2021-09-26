@@ -144,6 +144,8 @@ interface Props {
   background?: string;
   qualityLevel?: number;
   compressionLevel?: number;
+  retryDuration?: number; // in milliseconds
+  debug?: boolean; // show logs in the console
 }
 ```
 
