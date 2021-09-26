@@ -1,3 +1,10 @@
+## [0.2.3](https://github.com/roerohan/react-vnc/compare/v0.2.2...v0.2.3) (2021-09-26)
+
+
+### Bug Fixes
+
+* **config:** added configurable retry duration and logging ([#11](https://github.com/roerohan/react-vnc/issues/11)) ([25c2e4e](https://github.com/roerohan/react-vnc/commit/25c2e4ebd434a8a8e0e4c5659234ead68c1cbcf2)), closes [#3](https://github.com/roerohan/react-vnc/issues/3)
+
 ## [0.2.2](https://github.com/roerohan/react-vnc/compare/v0.2.1...v0.2.2) (2021-09-26)
 
 
