@@ -14,14 +14,14 @@ const peerDependencies = {
 	'react-dom': '>=16.0.0',
 };
 
-fs.writeFileSync('./dist/package.json', JSON.stringify({
+fs.writeFileSync('package.json', JSON.stringify({
 	name: pkg.name,
 	description: pkg.description,
 	version: pkg.version,
 	repository: pkg.repository,
 	keywords: pkg.keywords,
-	main: pkg.main.replace(/dist\//ig, ''),
-	typings: pkg.typings.replace(/dist\//ig, ''),
+	main: pkg.main,
+	typings: pkg.typings,
 	publishConfig: pkg.publishConfig,
 	dependencies,
 	peerDependencies,

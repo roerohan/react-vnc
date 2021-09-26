@@ -41,10 +41,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:lib": "rollup -c",
+    "lint": "eslint . --ext .ts --ext .js",
+    "lint:fix": "eslint . --ext .ts --ext .js --fix",
+    "prepare": "is-ci || husky install",
     "prepack": "npm run build:lib",
-    "publish": "npm run build:lib && node prepublish.js && cp README.md LICENSE dist/ && cd dist && npm publish",
-    "lint": "eslint \"src/**/*.{ts,js,tsx,jsx}\"",
-    "lint:fix": "eslint \"src/**/*.{ts,js,tsx,jsx}\" --fix"
+    "prepublishOnly": "cp package.json package.json.bak && node prepublish.js",
+    "postpublish": "mv package.json.bak package.json"
   },
   "eslintConfig": {
     "extends": [
@@ -65,7 +67,29 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@semantic-release/changelog": "^6.0.0",
+    "@semantic-release/commit-analyzer": "^9.0.1",
+    "@semantic-release/git": "^10.0.0",
+    "@semantic-release/npm": "^8.0.0",
+    "@semantic-release/release-notes-generator": "^10.0.2",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.2.0",
+    "husky": "^7.0.0",
+    "is-ci": "^2.0.0",
     "rollup": "^2.44.0",
-    "rollup-plugin-typescript2": "^0.30.0"
+    "rollup-plugin-typescript2": "^0.30.0",
+    "semantic-release": "^18.0.0"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
