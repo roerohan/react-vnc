@@ -43,9 +43,9 @@ export default function VncScreen(props: Props) {
     } = props;
 
     const logger = {
-        log: debug ? console.log : () => { },
-        info: debug ? console.info : () => { },
-        error: debug ? console.info : () => { },
+        log: (...args: any[]) => { if (debug) console.log(...args); },
+        info: (...args: any[]) => { if (debug) console.info(...args); },
+        error: (...args: any[]) => { if (debug) console.error(...args); },
     };
 
     const disconnect = () => {
