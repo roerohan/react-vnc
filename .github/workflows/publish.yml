@@ -1,8 +1,7 @@
-name: Release to GHR
+name: Release to NPM Registry
 on:
   push:
     branches:
-      - staging
       - main
 jobs:
   release:
