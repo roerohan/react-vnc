@@ -1,3 +1,10 @@
+## [0.2.2](https://github.com/roerohan/react-vnc/compare/v0.2.1...v0.2.2) (2021-09-26)
+
+
+### Bug Fixes
+
+* **cron:** update cron job to 00:00 everyday ([#10](https://github.com/roerohan/react-vnc/issues/10)) ([1fae558](https://github.com/roerohan/react-vnc/commit/1fae5580d7d8dcc987ad65dcbbeeb69d389e6c83))
+
 ## [0.2.1](https://github.com/roerohan/react-vnc/compare/v0.2.0...v0.2.1) (2021-09-26)
 
 
