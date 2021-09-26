@@ -1,52 +1,33 @@
-name: Publish NPM package and Release on GitHub
-
+name: Release to GHR
 on:
   push:
-    branches: [master]
-
+    branches:
+      - staging
+      - main
 jobs:
-  publish:
+  release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
       - uses: actions/setup-node@v2
         with:
-          node-version: 15
+          node-version: 16
           registry-url: https://registry.npmjs.org/
 
-      - run: git fetch --all --tags
-        
-      - name: Check version change
-        uses: thebongy/version-check@v1
-        id: check
-        with:
-          file: package.json
-          failBuild: false
-          tagFormat: v${version}
-      
-      - name: Echo variables
-        run: |
-          echo "versionChanged- ${{steps.check.outputs.versionChanged}}"
-          echo "releaseVersion- ${{steps.check.outputs.releaseVersion}}"
+      - name: Install dependencies
+        run: npm install
 
-      - if: steps.check.outputs.versionChanged == 'true'
-        run: |
-          git submodule update --init --recursive
-          npm install
+      - name: Build package
+        run: npm run build
 
-      - if: steps.check.outputs.versionChanged == 'true'
-        run: npm run publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH_TOKEN}}
-
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        if: steps.check.outputs.versionChanged == 'true'
+      - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.check.outputs.releaseVersion }}
-          release_name: Release ${{ steps.check.outputs.releaseVersion }}
-          draft: false
-          prerelease: false
+          NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+        run: npx semantic-release
