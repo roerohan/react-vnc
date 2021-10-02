@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-vnc/static/css/main.f75dbd95.chunk.css",
+    "main.css": "/react-vnc/static/css/main.5e3647ae.chunk.css",
     "main.js": "/react-vnc/static/js/main.dc0e58f2.chunk.js",
     "runtime-main.js": "/react-vnc/static/js/runtime-main.71a73738.js",
     "static/js/2.6b7c8e88.chunk.js": "/react-vnc/static/js/2.6b7c8e88.chunk.js",
@@ -11,7 +11,7 @@
   "entrypoints": [
     "static/js/runtime-main.71a73738.js",
     "static/js/2.6b7c8e88.chunk.js",
-    "static/css/main.f75dbd95.chunk.css",
+    "static/css/main.5e3647ae.chunk.css",
     "static/js/main.dc0e58f2.chunk.js"
   ]
 }
