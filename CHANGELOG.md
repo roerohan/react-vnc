@@ -1,3 +1,11 @@
+## [0.2.5](https://github.com/roerohan/react-vnc/compare/v0.2.4...v0.2.5) (2021-10-02)
+
+
+### Bug Fixes
+
+* added npm test action and fixed failing tests ([#14](https://github.com/roerohan/react-vnc/issues/14)) ([990eb86](https://github.com/roerohan/react-vnc/commit/990eb8670547364018d0229ba1220c6320454e7e))
+* **submodules:** submodules were updated ([ee59941](https://github.com/roerohan/react-vnc/commit/ee5994198611a05fa28b280380c3e2e66613ffdf))
+
 ## [0.2.4](https://github.com/roerohan/react-vnc/compare/v0.2.3...v0.2.4) (2021-09-26)
 
 
