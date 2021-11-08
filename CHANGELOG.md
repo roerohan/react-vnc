@@ -1,3 +1,12 @@
+## [0.2.6](https://github.com/roerohan/react-vnc/compare/v0.2.5...v0.2.6) (2021-11-08)
+
+
+### Bug Fixes
+
+* **publish:** allow publishing through repository dispatch ([5dbd528](https://github.com/roerohan/react-vnc/commit/5dbd528c34e3217d52cabcc8e5f190780d413244))
+* **submodules:** submodules were updated ([574b631](https://github.com/roerohan/react-vnc/commit/574b631a53402ea3c36b1745d4b725b2c3f6d9c9))
+* **submodules:** submodules were updated ([0fc1ee5](https://github.com/roerohan/react-vnc/commit/0fc1ee5853ef4c869aa0c2448dc64a38be3eca23))
+
 ## [0.2.5](https://github.com/roerohan/react-vnc/compare/v0.2.4...v0.2.5) (2021-10-02)
 
 
