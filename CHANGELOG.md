@@ -1,3 +1,16 @@
+## [0.2.8](https://github.com/roerohan/react-vnc/compare/v0.2.7...v0.2.8) (2022-01-07)
+
+
+### Bug Fixes
+
+* **submodules:** submodules were updated ([52a9985](https://github.com/roerohan/react-vnc/commit/52a9985d11c833ca662535b4b50bc16eb7193d6e))
+* **submodules:** submodules were updated ([01afe07](https://github.com/roerohan/react-vnc/commit/01afe07b5801087fbf11fec366896c980986ac54))
+* **submodules:** submodules were updated ([b22808a](https://github.com/roerohan/react-vnc/commit/b22808a1766fa840f2503b643c0342acefb753d0))
+* **submodules:** submodules were updated ([476715e](https://github.com/roerohan/react-vnc/commit/476715ea0ac5838226748ef6c77fc76d4b66662b))
+* **submodules:** submodules were updated ([5cfae44](https://github.com/roerohan/react-vnc/commit/5cfae44ae270c794bbf6b3e3c0455d42c06b98be))
+* **submodules:** submodules were updated ([6ddbf49](https://github.com/roerohan/react-vnc/commit/6ddbf49f8b5283c46b3018dfb1c4b66e0979f1e4))
+* **submodules:** submodules were updated ([4449674](https://github.com/roerohan/react-vnc/commit/444967431d233ad2466e32b24937340e2df803d0))
+
 ## [0.2.7](https://github.com/roerohan/react-vnc/compare/v0.2.6...v0.2.7) (2021-11-20)
 
 
