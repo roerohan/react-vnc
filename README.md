@@ -121,6 +121,7 @@ function App() {
         width: '75vw',
         height: '75vh',
       }}
+      ref={ref}
     />
   );
 }
@@ -155,6 +156,8 @@ interface Props {
 ```
 
 To know more about these props, check out [API.md](https://github.com/novnc/noVNC/blob/master/docs/API.md#properties).
+
+You can pass a `ref` to the `VncScreen` component, and access the `connect()` and `disconnect()` methods from the library. Check out [#18](https://github.com/roerohan/react-vnc/issues/18) for more details.
 
 <!-- ROADMAP -->
 ## Roadmap
