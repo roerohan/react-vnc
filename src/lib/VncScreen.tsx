@@ -21,6 +21,7 @@ export interface Props {
     background?: string;
     qualityLevel?: number;
     compressionLevel?: number;
+    autoConnect?: boolean;
     retryDuration?: number;
     debug?: boolean;
 }
@@ -33,7 +34,8 @@ export type VncScreenHandle = {
 
 const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props, ref) => {
     const [rfb, setRfb] = useState<RFB | null>(null);
-    const [connected, setConnected] = useState<boolean>(false);
+    const connected = useRef<boolean>(props.autoConnect ?? true);
+    const timeouts = useRef<Array<NodeJS.Timeout>>([]);
     const screen = useRef<HTMLDivElement>(null);
     const [loading, setLoading] = useState<boolean>(true);
 
@@ -51,6 +53,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         background,
         qualityLevel,
         compressionLevel,
+        autoConnect = true,
         retryDuration = 3000,
         debug = false,
     } = props;
@@ -61,19 +64,68 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         error: (...args: any[]) => { if (debug) console.error(...args); },
     };
 
-    const disconnect = () => {
-        if (!rfb) {
-            return;
-        }
+    const getConnected = () => {
+        return connected.current;
+    }
 
-        rfb.disconnect();
-        setRfb(null);
-        setConnected(false);
+    const setConnected = (state: boolean) => {
+        connected.current = state;
+    }
+
+    const onConnect = () => {
+        logger.info('Connected to remote VNC.');
+        setLoading(false);
+    };
+
+    const onDisconnect = () => {
+        const connected = getConnected();
+        console.log('onDisconnect: connected', connected);
+        if (connected) {
+            logger.info(`Unexpectedly disconnected from remote VNC, retrying in ${retryDuration / 1000} seconds.`);
+
+            timeouts.current.push(setTimeout(connect, retryDuration));
+        } else {
+            logger.info(`Disconnected from remote VNC.`);
+        }
+        setLoading(true);
+    }
+
+    const onCredentialsRequired = (_rfb: RFB) => {
+        const password = prompt("Password Required:");
+        _rfb.sendCredentials({ password: password });
+    };
+
+    const onDesktopName = (e: { detail: { name: string } }) => {
+        logger.info(`Desktop name is ${e.detail.name}`);
+    };
+
+    const disconnect = () => {
+        try {
+            if (!rfb) {
+                return;
+            }
+
+            timeouts.current.forEach(clearTimeout);
+            rfb.disconnect();
+            rfb.removeEventListener('connected', onConnect);
+            rfb.removeEventListener('disconnect', onDisconnect);
+            rfb.removeEventListener('credentialsrequired', onCredentialsRequired);
+            rfb.removeEventListener('desktopname', onDesktopName);
+            setRfb(null);
+            setConnected(false);
+        } catch (err) {
+            logger.error(err);
+            setRfb(null);
+            setConnected(false);
+        }
     };
 
     const connect = () => {
         try {
-            disconnect();
+            console.log('connected', connected);
+            if (connected && !!rfb) {
+                disconnect();
+            }
 
             if (!screen.current) {
                 return;
@@ -95,29 +147,15 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
             _rfb.compressionLevel = compressionLevel ?? 2;
             setRfb(_rfb);
 
-            _rfb.addEventListener('connect', () => {
-                logger.info('Connected to remote VNC.');
-                setLoading(false);
-            });
+            _rfb.addEventListener('connect', onConnect);
 
-            _rfb.addEventListener('disconnect', () => {
-                if (connected) {
-                    logger.info(`Unexpectedly disconnected from remote VNC, retrying in ${retryDuration / 1000} seconds.`);
-                    setTimeout(connect, retryDuration);
-                }
-                logger.info(`Disconnected from remote VNC.`);
-                setLoading(true);
-            });
+            _rfb.addEventListener('disconnect', onDisconnect);
 
-            _rfb.addEventListener('credentialsrequired', () => {
-                const password = prompt("Password Required:");
-                _rfb.sendCredentials({ password: password });
-            });
+            _rfb.addEventListener('credentialsrequired', () => onCredentialsRequired(_rfb));
 
-            _rfb.addEventListener('desktopname', (e: { detail: { name: string } }) => {
-                logger.info(`Desktop name is ${e.detail.name}`);
-            });
+            _rfb.addEventListener('desktopname', onDesktopName);
 
+            console.log('Setting connected to true again');
             setConnected(true);
         } catch (err) {
             logger.error(err);
@@ -127,11 +165,13 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
     useImperativeHandle(ref, () => ({
         connect,
         disconnect,
-        connected,
+        connected: connected.current,
     }));
 
     useEffect(() => {
-        connect();
+        if (autoConnect) {
+            connect();
+        }
 
         return disconnect;
         // eslint-disable-next-line react-hooks/exhaustive-deps
