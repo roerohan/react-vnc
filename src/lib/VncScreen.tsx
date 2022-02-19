@@ -24,6 +24,7 @@ export interface Props {
     autoConnect?: boolean;
     retryDuration?: number;
     debug?: boolean;
+    loadingUI?: React.ReactNode;
     onConnect?: (rfb?: RFB) => void;
     onDisconnect?: (rfb?: RFB) => void;
     onCredentialsRequired?: (rfb?: RFB) => void;
@@ -60,6 +61,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         autoConnect = true,
         retryDuration = 3000,
         debug = false,
+        loadingUI,
         onConnect,
         onDisconnect,
         onCredentialsRequired,
@@ -109,7 +111,6 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         }
 
         const connected = getConnected();
-        console.log('onDisconnect: connected', connected);
         if (connected) {
             logger.info(`Unexpectedly disconnected from remote VNC, retrying in ${retryDuration / 1000} seconds.`);
 
@@ -169,7 +170,6 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
 
     const connect = () => {
         try {
-            console.log('connected', connected);
             if (connected && !!rfb) {
                 disconnect();
             }
@@ -202,7 +202,6 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
 
             _rfb.addEventListener('desktopname', _onDesktopName);
 
-            console.log('Setting connected to true again');
             setConnected(true);
         } catch (err) {
             logger.error(err);
@@ -257,7 +256,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             />
-            {loading && <div className="text-white loading">Loading...</div>}
+            {loading && (loadingUI ?? <div className="text-white loading">Loading...</div>)}
         </>
     );
 }
