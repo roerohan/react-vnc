@@ -37,7 +37,7 @@ export type VncScreenHandle = {
 };
 
 const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props, ref) => {
-    const [rfb, setRfb] = useState<RFB | null>(null);
+    const rfb = useRef<RFB | null>(null);
     const connected = useRef<boolean>(props.autoConnect ?? true);
     const timeouts = useRef<Array<NodeJS.Timeout>>([]);
     const screen = useRef<HTMLDivElement>(null);
@@ -72,15 +72,24 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         error: (...args: any[]) => { if (debug) console.error(...args); },
     };
 
+    const getRfb = () => {
+        return rfb.current;
+    };
+
+    const setRfb = (_rfb: RFB | null) => {
+        rfb.current = _rfb;
+    };
+
     const getConnected = () => {
         return connected.current;
-    }
+    };
 
     const setConnected = (state: boolean) => {
         connected.current = state;
-    }
+    };
 
     const _onConnect = () => {
+        const rfb = getRfb();
         if (onConnect) {
             onConnect(rfb ?? undefined);
             setLoading(false);
@@ -92,6 +101,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
     };
 
     const _onDisconnect = () => {
+        const rfb = getRfb();
         if (onDisconnect) {
             onDisconnect(rfb ?? undefined);
             setLoading(true);
@@ -108,9 +118,10 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
             logger.info(`Disconnected from remote VNC.`);
         }
         setLoading(true);
-    }
+    };
 
     const _onCredentialsRequired = () => {
+        const rfb = getRfb();
         if (onCredentialsRequired) {
             onCredentialsRequired(rfb ?? undefined);
             return;
@@ -130,6 +141,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
     };
 
     const disconnect = () => {
+        const rfb = getRfb();
         try {
             if (!rfb) {
                 return;
@@ -213,10 +225,11 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
     }, []);
 
     const handleClick = () => {
+        const rfb = getRfb();
         if (!rfb) return;
 
         rfb.focus();
-    }
+    };
 
     const handleMouseEnter = () => {
         if (document.activeElement && document.activeElement instanceof HTMLElement) {
@@ -227,6 +240,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
     };
 
     const handleMouseLeave = () => {
+        const rfb = getRfb();
         if (!rfb) {
             return;
         }

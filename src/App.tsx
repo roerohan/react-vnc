@@ -67,10 +67,6 @@ function App() {
                 }}
                 debug
                 ref={vncScreenRef}
-                onConnect={(rfb) => {
-                  console.log('yay');
-                  console.log(rfb);
-                }}
               />
             )
             : <div>VNC URL not provided.</div>
