@@ -151,7 +151,7 @@ interface Props {
   onConnect?: (rfb?: RFB) => void;
   onDisconnect?: (rfb?: RFB) => void;
   onCredentialsRequired?: (rfb?: RFB) => void;
-  onDesktopName?: (e: { detail: { name: string } }) => void;
+  onDesktopName?: (e?: { detail: { name: string } }) => void;
 }
 ```
 
