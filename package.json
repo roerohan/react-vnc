@@ -5,8 +5,15 @@
   "author": "roerohan",
   "license": "MIT",
   "main": "dist/index.js",
+  "module": "dist/index.es.js",
   "source": "src/lib/index.tsx",
   "typings": "dist/types/lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.js"
+    }
+  },
   "keywords": [
     "vnc",
     "noVNC",
