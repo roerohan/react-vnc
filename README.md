@@ -148,6 +148,7 @@ interface Props {
   autoConnect?: number; // defaults to true
   retryDuration?: number; // in milliseconds
   debug?: boolean; // show logs in the console
+  loadingUI?: React.ReactNode; // custom component that is displayed when loading
   onConnect?: (rfb?: RFB) => void;
   onDisconnect?: (rfb?: RFB) => void;
   onCredentialsRequired?: (rfb?: RFB) => void;
