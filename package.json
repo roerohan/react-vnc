@@ -5,8 +5,15 @@
   "author": "roerohan",
   "license": "MIT",
   "main": "dist/index.js",
+  "module": "dist/index.es.js",
   "source": "src/lib/index.tsx",
   "typings": "dist/types/lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.js"
+    }
+  },
   "keywords": [
     "vnc",
     "noVNC",
@@ -32,7 +39,6 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
-    "typescript": "^4.2.4",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
@@ -42,11 +48,12 @@
     "eject": "react-scripts eject",
     "build:lib": "rollup -c",
     "lint": "eslint . --ext .ts --ext .js",
-    "lint:fix": "eslint . --ext .ts --ext .js --fix",
+    "lint:fix": "npm run lint -- --fix",
     "prepare": "is-ci || husky install",
     "prepack": "npm run build:lib",
     "prepublishOnly": "cp package.json package.json.bak && node prepublish.js",
-    "postpublish": "mv package.json.bak package.json"
+    "postpublish": "mv package.json.bak package.json",
+    "submodule": "git submodule update --init --recursive"
   },
   "eslintConfig": {
     "extends": [
@@ -80,7 +87,8 @@
     "is-ci": "^2.0.0",
     "rollup": "^2.44.0",
     "rollup-plugin-typescript2": "^0.30.0",
-    "semantic-release": "^18.0.0"
+    "semantic-release": "^18.0.0",
+    "typescript": "^4.5.5"
   },
   "commitlint": {
     "extends": [
