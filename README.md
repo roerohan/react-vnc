@@ -145,14 +145,23 @@ interface Props {
   background?: string;
   qualityLevel?: number;
   compressionLevel?: number;
+  autoConnect?: number; // defaults to true
   retryDuration?: number; // in milliseconds
   debug?: boolean; // show logs in the console
+  onConnect?: (rfb?: RFB) => void;
+  onDisconnect?: (rfb?: RFB) => void;
+  onCredentialsRequired?: (rfb?: RFB) => void;
+  onDesktopName?: (e?: { detail: { name: string } }) => void;
 }
 ```
 
 To know more about these props, check out [API.md](https://github.com/novnc/noVNC/blob/master/docs/API.md#properties).
 
 You can pass a `ref` to the `VncScreen` component, and access the `connect()` and `disconnect()` methods from the library. Check out [#18](https://github.com/roerohan/react-vnc/issues/18) for more details.
+
+The `onConnect`, `onDisconnect`, `onCredentialsRequired`, and `onDesktopName` props are optional, and there are existing defaults set for them. For example, the default `onDisconnect` function consists of some logic to retry connecting after a certain timeout (specified by `retryDuration`). Check out the default `_onConnect` and `_onDisconnect` functions in [VncScreen.tsx](./src/lib/VncScreen.tsx) for more details.
+
+The `onConnect`, `onDisconnect`, and `onCredentialsRequired` callbacks can accept a single parameter `rfb`. This parameter is the `RFB` object, which is described by [**noVNC**](https://github.com/novnc/noVNC). Learn more about the `RFB` object [here](https://github.com/novnc/noVNC/blob/master/docs/API.md#rfb).
 
 <!-- ROADMAP -->
 ## Roadmap
