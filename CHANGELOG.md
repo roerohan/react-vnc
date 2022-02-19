@@ -1,3 +1,10 @@
+## [0.2.9](https://github.com/roerohan/react-vnc/compare/v0.2.8...v0.2.9) (2022-02-19)
+
+
+### Bug Fixes
+
+* **forwardRef:** forward connect(), disconnect() and connected from VncScreen ([#20](https://github.com/roerohan/react-vnc/issues/20)) ([9392ab3](https://github.com/roerohan/react-vnc/commit/9392ab3a2a06a88d77e1730823ee514309808658))
+
 ## [0.2.8](https://github.com/roerohan/react-vnc/compare/v0.2.7...v0.2.8) (2022-01-07)
 
 
