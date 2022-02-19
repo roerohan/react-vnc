@@ -1,3 +1,10 @@
+## [0.2.10](https://github.com/roerohan/react-vnc/compare/v0.2.9...v0.2.10) (2022-02-19)
+
+
+### Bug Fixes
+
+* **prepublish:** added module, and exports in prepublish script ([#21](https://github.com/roerohan/react-vnc/issues/21)) ([611b86a](https://github.com/roerohan/react-vnc/commit/611b86af522567d0a586b40a5950c763ec59eac2))
+
 ## [0.2.9](https://github.com/roerohan/react-vnc/compare/v0.2.8...v0.2.9) (2022-02-19)
 
 
