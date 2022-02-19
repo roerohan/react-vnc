@@ -24,6 +24,10 @@ export interface Props {
     autoConnect?: boolean;
     retryDuration?: number;
     debug?: boolean;
+    onConnect?: (rfb?: RFB) => void;
+    onDisconnect?: (rfb?: RFB) => void;
+    onCredentialsRequired?: (rfb?: RFB) => void;
+    onDesktopName?: (e: { detail: { name: string } }) => void;
 }
 
 export type VncScreenHandle = {
@@ -56,6 +60,10 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         autoConnect = true,
         retryDuration = 3000,
         debug = false,
+        onConnect,
+        onDisconnect,
+        onCredentialsRequired,
+        onDesktopName,
     } = props;
 
     const logger = {
@@ -72,12 +80,24 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         connected.current = state;
     }
 
-    const onConnect = () => {
+    const _onConnect = () => {
+        if (onConnect) {
+            onConnect(rfb ?? undefined);
+            setLoading(false);
+            return;
+        }
+
         logger.info('Connected to remote VNC.');
         setLoading(false);
     };
 
-    const onDisconnect = () => {
+    const _onDisconnect = () => {
+        if (onDisconnect) {
+            onDisconnect(rfb ?? undefined);
+            setLoading(true);
+            return;
+        }
+
         const connected = getConnected();
         console.log('onDisconnect: connected', connected);
         if (connected) {
@@ -90,12 +110,22 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         setLoading(true);
     }
 
-    const onCredentialsRequired = (_rfb: RFB) => {
+    const _onCredentialsRequired = () => {
+        if (onCredentialsRequired) {
+            onCredentialsRequired(rfb ?? undefined);
+            return;
+        }
+
         const password = prompt("Password Required:");
-        _rfb.sendCredentials({ password: password });
+        rfb?.sendCredentials({ password: password });
     };
 
-    const onDesktopName = (e: { detail: { name: string } }) => {
+    const _onDesktopName = (e: { detail: { name: string } }) => {
+        if (onDesktopName) {
+            onDesktopName(e);
+            return;
+        }
+
         logger.info(`Desktop name is ${e.detail.name}`);
     };
 
@@ -106,13 +136,18 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
             }
 
             timeouts.current.forEach(clearTimeout);
+            rfb.removeEventListener('connected', _onConnect);
+            rfb.removeEventListener('disconnect', _onDisconnect);
+            rfb.removeEventListener('credentialsrequired', _onCredentialsRequired);
+            rfb.removeEventListener('desktopname', _onDesktopName);
             rfb.disconnect();
-            rfb.removeEventListener('connected', onConnect);
-            rfb.removeEventListener('disconnect', onDisconnect);
-            rfb.removeEventListener('credentialsrequired', onCredentialsRequired);
-            rfb.removeEventListener('desktopname', onDesktopName);
             setRfb(null);
             setConnected(false);
+
+            // NOTE(roerohan): This needs to be called since the event listener is removed.
+            // Even if the event listener is removed after rfb.disconnect(), the disconnect
+            // event is not fired.
+            _onDisconnect();
         } catch (err) {
             logger.error(err);
             setRfb(null);
@@ -147,13 +182,13 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
             _rfb.compressionLevel = compressionLevel ?? 2;
             setRfb(_rfb);
 
-            _rfb.addEventListener('connect', onConnect);
+            _rfb.addEventListener('connect', _onConnect);
 
-            _rfb.addEventListener('disconnect', onDisconnect);
+            _rfb.addEventListener('disconnect', _onDisconnect);
 
-            _rfb.addEventListener('credentialsrequired', () => onCredentialsRequired(_rfb));
+            _rfb.addEventListener('credentialsrequired', _onCredentialsRequired);
 
-            _rfb.addEventListener('desktopname', onDesktopName);
+            _rfb.addEventListener('desktopname', _onDesktopName);
 
             console.log('Setting connected to true again');
             setConnected(true);

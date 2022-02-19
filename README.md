@@ -147,6 +147,10 @@ interface Props {
   autoConnect?: number; // defaults to true
   retryDuration?: number; // in milliseconds
   debug?: boolean; // show logs in the console
+  onConnect?: (rfb?: RFB) => void;
+  onDisconnect?: (rfb?: RFB) => void;
+  onCredentialsRequired?: (rfb?: RFB) => void;
+  onDesktopName?: (e: { detail: { name: string } }) => void;
 }
 ```
 
