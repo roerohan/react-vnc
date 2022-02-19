@@ -159,6 +159,8 @@ To know more about these props, check out [API.md](https://github.com/novnc/noVN
 
 You can pass a `ref` to the `VncScreen` component, and access the `connect()` and `disconnect()` methods from the library. Check out [#18](https://github.com/roerohan/react-vnc/issues/18) for more details.
 
+The `onConnect`, `onDisconnect`, `onCredentialsRequired`, and `onDesktopName` props are optional, and there are existing defaults set for them. For example, the default `onDisconnect` function consists of some logic to retry connecting after a certain timeout (specified by `retryDuration`). Check out the default `_onConnect` and `_onDisconnect` functions in [VncScreen.tsx](./src/lib/VncScreen.tsx) for more details.
+
 <!-- ROADMAP -->
 ## Roadmap
 
