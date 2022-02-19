@@ -1,3 +1,10 @@
+# [0.4.0](https://github.com/roerohan/react-vnc/compare/v0.3.0...v0.4.0) (2022-02-19)
+
+
+### Features
+
+* **loading:** added custom component that can be displayed in place of default loading UI ([#23](https://github.com/roerohan/react-vnc/issues/23)) ([8005dd2](https://github.com/roerohan/react-vnc/commit/8005dd2dc2c9036fcbe61a4b9f87d8c1e6a8c85b))
+
 # [0.3.0](https://github.com/roerohan/react-vnc/compare/v0.2.10...v0.3.0) (2022-02-19)
 
 
