@@ -27,7 +27,13 @@
   "files": [
     "dist/"
   ],
-  "repository": "https://github.com/roerohan/react-vnc/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roerohan/react-vnc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/roerohan/react-vnc/issues"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
