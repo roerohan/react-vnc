@@ -1,3 +1,17 @@
+# [0.3.0](https://github.com/roerohan/react-vnc/compare/v0.2.10...v0.3.0) (2022-02-19)
+
+
+### Bug Fixes
+
+* **autoConnect:** auto connect timeout issues fixed ([8678abf](https://github.com/roerohan/react-vnc/commit/8678abfe6f6f541224e95af542b3af16ce277e92))
+* **onDesktopName:** made params optional ([a246aca](https://github.com/roerohan/react-vnc/commit/a246aca8ba11b07fb4d583fa273035f2424e2f17))
+* **rfb:** use rfb as a ref so that it can be returned with onConnect ([4df7d49](https://github.com/roerohan/react-vnc/commit/4df7d49b4a564d2ff16cb45200c280923f6afb3f))
+
+
+### Features
+
+* **listeners:** export onConnect, onDisconnect, etc ([15cc8f4](https://github.com/roerohan/react-vnc/commit/15cc8f46d71a32e52ba7690bd8c0c0341f517d23))
+
 ## [0.2.10](https://github.com/roerohan/react-vnc/compare/v0.2.9...v0.2.10) (2022-02-19)
 
 
