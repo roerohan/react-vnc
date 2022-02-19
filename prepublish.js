@@ -21,6 +21,8 @@ fs.writeFileSync('package.json', JSON.stringify({
 	repository: pkg.repository,
 	keywords: pkg.keywords,
 	main: pkg.main,
+	module: pkg.module,
+	exports: pkg.exports,
 	typings: pkg.typings,
 	publishConfig: pkg.publishConfig,
 	dependencies,
