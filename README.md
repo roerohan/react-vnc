@@ -161,6 +161,8 @@ You can pass a `ref` to the `VncScreen` component, and access the `connect()` an
 
 The `onConnect`, `onDisconnect`, `onCredentialsRequired`, and `onDesktopName` props are optional, and there are existing defaults set for them. For example, the default `onDisconnect` function consists of some logic to retry connecting after a certain timeout (specified by `retryDuration`). Check out the default `_onConnect` and `_onDisconnect` functions in [VncScreen.tsx](./src/lib/VncScreen.tsx) for more details.
 
+The `onConnect`, `onDisconnect`, and `onCredentialsRequired` callbacks can accept a single parameter `rfb`. This parameter is the `RFB` object, which is described by [**noVNC**](https://github.com/novnc/noVNC). Learn more about the `RFB` object [here](https://github.com/novnc/noVNC/blob/master/docs/API.md#rfb).
+
 <!-- ROADMAP -->
 ## Roadmap
 
