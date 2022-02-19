@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './App.css';
 import { VncScreen } from './lib';
 
 function App() {
   const [vncUrl, setVncUrl] = useState('');
   const [inputUrl, setInputUrl] = useState('');
+  const vncScreenRef = useRef<React.ElementRef<typeof VncScreen>>(null);
 
   const isValid = (vncUrl: string) => {
     if (!vncUrl.startsWith('ws://') && !vncUrl.startsWith('wss://')) {
@@ -37,6 +38,21 @@ function App() {
       </div>
 
       <div style={{ margin: '1rem' }}>
+        <button
+          onClick={() => {
+            const { connect, connected, disconnect } = vncScreenRef.current ?? {};
+            if (connected) {
+              disconnect?.();
+              return;
+            }
+            connect?.();
+          }}
+        >
+          Connect / Disconnect
+        </button>
+      </div>
+
+      <div style={{ margin: '1rem' }}>
         {
           isValid(vncUrl)
             ?
@@ -50,6 +66,7 @@ function App() {
                   height: '75vh',
                 }}
                 debug
+                ref={vncScreenRef}
               />
             )
             : <div>VNC URL not provided.</div>

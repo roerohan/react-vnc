@@ -1,7 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+    forwardRef,
+    useEffect,
+    useImperativeHandle,
+    useRef,
+    useState,
+} from 'react';
 import RFB from '../noVNC/core/rfb';
 
-interface Props {
+export interface Props {
     url: string;
     style?: object;
     className?: string;
@@ -19,8 +25,15 @@ interface Props {
     debug?: boolean;
 }
 
-export default function VncScreen(props: Props) {
+export type VncScreenHandle = {
+    connect: () => void;
+    disconnect: () => void;
+    connected: boolean;
+};
+
+const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props, ref) => {
     const [rfb, setRfb] = useState<RFB | null>(null);
+    const [connected, setConnected] = useState<boolean>(false);
     const screen = useRef<HTMLDivElement>(null);
     const [loading, setLoading] = useState<boolean>(true);
 
@@ -55,6 +68,7 @@ export default function VncScreen(props: Props) {
 
         rfb.disconnect();
         setRfb(null);
+        setConnected(false);
     };
 
     const connect = () => {
@@ -69,16 +83,16 @@ export default function VncScreen(props: Props) {
 
             const _rfb = new RFB(screen.current, url);
 
-            _rfb.viewOnly = viewOnly || false;
-            _rfb.focusOnClick = focusOnClick || false;
-            _rfb.clipViewport = clipViewport || false;
-            _rfb.dragViewport = dragViewport || false;
-            _rfb.resizeSession = resizeSession || false;
-            _rfb.scaleViewport = scaleViewport || false;
-            _rfb.showDotCursor = showDotCursor || false;
-            _rfb.background = background || '';
-            _rfb.qualityLevel = qualityLevel || 6;
-            _rfb.compressionLevel = compressionLevel || 2;
+            _rfb.viewOnly = viewOnly ?? false;
+            _rfb.focusOnClick = focusOnClick ?? false;
+            _rfb.clipViewport = clipViewport ?? false;
+            _rfb.dragViewport = dragViewport ?? false;
+            _rfb.resizeSession = resizeSession ?? false;
+            _rfb.scaleViewport = scaleViewport ?? false;
+            _rfb.showDotCursor = showDotCursor ?? false;
+            _rfb.background = background ?? '';
+            _rfb.qualityLevel = qualityLevel ?? 6;
+            _rfb.compressionLevel = compressionLevel ?? 2;
             setRfb(_rfb);
 
             _rfb.addEventListener('connect', () => {
@@ -87,8 +101,11 @@ export default function VncScreen(props: Props) {
             });
 
             _rfb.addEventListener('disconnect', () => {
-                logger.info(`Disconnected from remote VNC, retrying in ${retryDuration / 1000} seconds.`);
-                setTimeout(connect, retryDuration);
+                if (connected) {
+                    logger.info(`Unexpectedly disconnected from remote VNC, retrying in ${retryDuration / 1000} seconds.`);
+                    setTimeout(connect, retryDuration);
+                }
+                logger.info(`Disconnected from remote VNC.`);
                 setLoading(true);
             });
 
@@ -100,10 +117,18 @@ export default function VncScreen(props: Props) {
             _rfb.addEventListener('desktopname', (e: { detail: { name: string } }) => {
                 logger.info(`Desktop name is ${e.detail.name}`);
             });
+
+            setConnected(true);
         } catch (err) {
             logger.error(err);
         }
     };
+
+    useImperativeHandle(ref, () => ({
+        connect,
+        disconnect,
+        connected,
+    }));
 
     useEffect(() => {
         connect();
@@ -147,3 +172,5 @@ export default function VncScreen(props: Props) {
         </>
     );
 }
+
+export default forwardRef(VncScreen);
