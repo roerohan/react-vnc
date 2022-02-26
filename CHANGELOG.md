@@ -1,3 +1,10 @@
+## [0.4.1](https://github.com/roerohan/react-vnc/compare/v0.4.0...v0.4.1) (2022-02-26)
+
+
+### Bug Fixes
+
+* **rfb:** expose rfb in VncScreen useImperativeHandle ([#26](https://github.com/roerohan/react-vnc/issues/26)) ([53af884](https://github.com/roerohan/react-vnc/commit/53af884d7d760ddc18138261ee408a8f64d5c245))
+
 # [0.4.0](https://github.com/roerohan/react-vnc/compare/v0.3.0...v0.4.0) (2022-02-19)
 
 
