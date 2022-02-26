@@ -35,6 +35,7 @@ export type VncScreenHandle = {
     connect: () => void;
     disconnect: () => void;
     connected: boolean;
+    rfb: RFB | null;
 };
 
 const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props, ref) => {
@@ -212,6 +213,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         connect,
         disconnect,
         connected: connected.current,
+        rfb: rfb.current,
     }));
 
     useEffect(() => {
