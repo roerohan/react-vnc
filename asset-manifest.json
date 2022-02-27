@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-vnc/static/css/main.5e3647ae.chunk.css",
-    "main.js": "/react-vnc/static/js/main.ddd1ced0.chunk.js",
+    "main.js": "/react-vnc/static/js/main.f7292428.chunk.js",
     "runtime-main.js": "/react-vnc/static/js/runtime-main.71a73738.js",
     "static/js/2.6f6b1d31.chunk.js": "/react-vnc/static/js/2.6f6b1d31.chunk.js",
     "static/js/3.96ad90dc.chunk.js": "/react-vnc/static/js/3.96ad90dc.chunk.js",
@@ -12,6 +12,6 @@
     "static/js/runtime-main.71a73738.js",
     "static/js/2.6f6b1d31.chunk.js",
     "static/css/main.5e3647ae.chunk.css",
-    "static/js/main.ddd1ced0.chunk.js"
+    "static/js/main.f7292428.chunk.js"
   ]
 }
