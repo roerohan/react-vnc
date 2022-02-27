@@ -7,11 +7,22 @@ import React, {
 } from 'react';
 import RFB from '../noVNC/core/rfb';
 
+export interface RFBOptions {
+    shared: boolean;
+    credentials: {
+        username?: string;
+        password?: string;
+        target?: string;
+    };
+    repeaterID: string;
+    wsProtocols: string;
+}
 export interface Props {
     url: string;
     style?: object;
     className?: string;
     viewOnly?: boolean;
+    rfbOptions?: Partial<RFBOptions>;
     focusOnClick?: boolean;
     clipViewport?: boolean;
     dragViewport?: boolean;
@@ -50,6 +61,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         style,
         className,
         viewOnly,
+        rfbOptions,
         focusOnClick,
         clipViewport,
         dragViewport,
@@ -129,7 +141,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
             return;
         }
 
-        const password = prompt("Password Required:");
+        const password = rfbOptions?.credentials?.password ?? prompt("Password Required:");
         rfb?.sendCredentials({ password: password });
     };
 
@@ -181,7 +193,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
 
             screen.current.innerHTML = '';
 
-            const _rfb = new RFB(screen.current, url);
+            const _rfb = new RFB(screen.current, url, rfbOptions);
 
             _rfb.viewOnly = viewOnly ?? false;
             _rfb.focusOnClick = focusOnClick ?? false;
