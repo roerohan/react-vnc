@@ -291,7 +291,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
     const machineShutdown = () => {
         const rfb = getRfb();
         rfb?.machineShutdown();
-    }
+    };
 
     const machineReboot = () => {
         const rfb = getRfb();
