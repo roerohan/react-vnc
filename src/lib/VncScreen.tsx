@@ -17,6 +17,7 @@ export interface RFBOptions {
     repeaterID: string;
     wsProtocols: string;
 }
+
 export interface Props {
     url: string;
     style?: object;
