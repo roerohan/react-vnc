@@ -135,7 +135,9 @@ The only `required` parameter is `url`, which must be a `ws://` or a `wss://` (w
 interface Props {
   url: string;
   style?: object;
+  className?: string;
   viewOnly?: boolean;
+  rfbOptions?: Partial<RFBOptions>;
   focusOnClick?: boolean;
   clipViewport?: boolean;
   dragViewport?: boolean;
@@ -152,7 +154,23 @@ interface Props {
   onConnect?: (rfb?: RFB) => void;
   onDisconnect?: (rfb?: RFB) => void;
   onCredentialsRequired?: (rfb?: RFB) => void;
+  onSecurityFailure?: (e?: { detail: { status: number, reason: string } }) => void;
+  onClipboard?: (e?: { detail: { text: string } }) => void;
+  onBell?: () => void;
   onDesktopName?: (e?: { detail: { name: string } }) => void;
+  onCapabilities?: (e?: { detail: { capabilities: RFB["capabilities"] } }) => void;
+}
+
+// The rfbOptions object in Props is of type Partial<RFBOptions>
+interface RFBOptions {
+    shared: boolean;
+    credentials: {
+        username?: string;
+        password?: string;
+        target?: string;
+    };
+    repeaterID: string;
+    wsProtocols: string;
 }
 ```
 
