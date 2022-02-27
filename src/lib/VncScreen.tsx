@@ -39,8 +39,25 @@ export interface Props {
     onConnect?: (rfb?: RFB) => void;
     onDisconnect?: (rfb?: RFB) => void;
     onCredentialsRequired?: (rfb?: RFB) => void;
+    onSecurityFailure?: (e?: { detail: { status: number, reason: string } }) => void;
+    onClipboard?: (e?: { detail: { text: string } }) => void;
+    onBell?: () => void;
     onDesktopName?: (e?: { detail: { name: string } }) => void;
+    onCapabilities?: (e?: { detail: { capabilities: RFB["capabilities"] } }) => void;
 }
+
+export enum Events {
+    connect,
+    disconnect,
+    credentialsrequired,
+    securityfailure,
+    clipboard,
+    bell,
+    desktopname,
+    capabilities,
+}
+
+export type EventListeners = { -readonly [key in keyof typeof Events]?: (e?: any) => void };
 
 export type VncScreenHandle = {
     connect: () => void;
@@ -56,12 +73,14 @@ export type VncScreenHandle = {
     machineReset: () => void;
     clipboardPaste: (text: string) => void;
     rfb: RFB | null;
+    eventListeners: EventListeners;
 };
 
 const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props, ref) => {
     const rfb = useRef<RFB | null>(null);
     const connected = useRef<boolean>(props.autoConnect ?? true);
     const timeouts = useRef<Array<NodeJS.Timeout>>([]);
+    const eventListeners = useRef<EventListeners>({});
     const screen = useRef<HTMLDivElement>(null);
     const [loading, setLoading] = useState<boolean>(true);
 
@@ -87,7 +106,11 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         onConnect,
         onDisconnect,
         onCredentialsRequired,
+        onSecurityFailure,
+        onClipboard,
+        onBell,
         onDesktopName,
+        onCapabilities,
     } = props;
 
     const logger = {
@@ -171,10 +194,12 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
             }
 
             timeouts.current.forEach(clearTimeout);
-            rfb.removeEventListener('connected', _onConnect);
-            rfb.removeEventListener('disconnect', _onDisconnect);
-            rfb.removeEventListener('credentialsrequired', _onCredentialsRequired);
-            rfb.removeEventListener('desktopname', _onDesktopName);
+            (Object.keys(eventListeners.current) as (keyof typeof Events)[]).forEach((event) => {
+                if (eventListeners.current[event]) {
+                    rfb.removeEventListener(event, eventListeners.current[event]);
+                    eventListeners.current[event] = undefined;
+                }
+            });
             rfb.disconnect();
             setRfb(null);
             setConnected(false);
@@ -216,13 +241,20 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
             _rfb.compressionLevel = compressionLevel ?? 2;
             setRfb(_rfb);
 
-            _rfb.addEventListener('connect', _onConnect);
+            eventListeners.current.connect = _onConnect;
+            eventListeners.current.disconnect = _onDisconnect;
+            eventListeners.current.credentialsrequired = _onCredentialsRequired;
+            eventListeners.current.securityfailure = onSecurityFailure;
+            eventListeners.current.clipboard = onClipboard;
+            eventListeners.current.bell = onBell;
+            eventListeners.current.desktopname = _onDesktopName;
+            eventListeners.current.capabilities = onCapabilities;
 
-            _rfb.addEventListener('disconnect', _onDisconnect);
-
-            _rfb.addEventListener('credentialsrequired', _onCredentialsRequired);
-
-            _rfb.addEventListener('desktopname', _onDesktopName);
+            (Object.keys(eventListeners.current) as (keyof typeof Events)[]).forEach((event) => {
+                if (eventListeners.current[event]) {
+                    _rfb.addEventListener(event, eventListeners.current[event]);
+                }
+            });
 
             setConnected(true);
         } catch (err) {
@@ -289,6 +321,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         machineReset,
         clipboardPaste,
         rfb: rfb.current,
+        eventListeners: eventListeners.current,
     }));
 
     useEffect(() => {
