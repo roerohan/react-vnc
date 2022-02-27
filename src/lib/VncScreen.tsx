@@ -46,6 +46,15 @@ export type VncScreenHandle = {
     connect: () => void;
     disconnect: () => void;
     connected: boolean;
+    sendCredentials: (credentials: RFBOptions["credentials"]) => void;
+    sendKey: (keysym: number, code: string, down?: boolean) => void;
+    sendCtrlAltDel: () => void;
+    focus: () => void;
+    blur: () => void;
+    machineShutDown: () => void;
+    machineReboot: () => void;
+    machineReset: () => void;
+    clipboardPaste: (text: string) => void;
     rfb: RFB | null;
 };
 
@@ -221,10 +230,64 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         }
     };
 
+    const sendCredentials = (credentials: RFBOptions["credentials"]) => {
+        const rfb = getRfb();
+        rfb?.sendCredentials(credentials);
+    };
+
+    const sendKey = (keysym: number, code: string, down?: boolean) => {
+        const rfb = getRfb();
+        rfb?.sendKey(keysym, code, down);
+    };
+
+    const sendCtrlAltDel = () => {
+        const rfb = getRfb();
+        rfb?.sendCtrlAltDel();
+    };
+
+    const focus = () => {
+        const rfb = getRfb();
+        rfb?.focus();
+    };
+
+    const blur = () => {
+        const rfb = getRfb();
+        rfb?.blur();
+    };
+
+    const machineShutDown = () => {
+        const rfb = getRfb();
+        rfb?.machineShutdown();
+    }
+
+    const machineReboot = () => {
+        const rfb = getRfb();
+        rfb?.machineReboot();
+    };
+
+    const machineReset = () => {
+        const rfb = getRfb();
+        rfb?.machineReset();
+    };
+
+    const clipboardPaste = (text: string) => {
+        const rfb = getRfb();
+        rfb?.clipboardPasteFrom(text);
+    };
+
     useImperativeHandle(ref, () => ({
         connect,
         disconnect,
         connected: connected.current,
+        sendCredentials,
+        sendKey,
+        sendCtrlAltDel,
+        focus,
+        blur,
+        machineShutDown,
+        machineReboot,
+        machineReset,
+        clipboardPaste,
         rfb: rfb.current,
     }));
 
