@@ -51,7 +51,7 @@ export type VncScreenHandle = {
     sendCtrlAltDel: () => void;
     focus: () => void;
     blur: () => void;
-    machineShutDown: () => void;
+    machineShutdown: () => void;
     machineReboot: () => void;
     machineReset: () => void;
     clipboardPaste: (text: string) => void;
@@ -255,7 +255,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         rfb?.blur();
     };
 
-    const machineShutDown = () => {
+    const machineShutdown = () => {
         const rfb = getRfb();
         rfb?.machineShutdown();
     }
@@ -284,7 +284,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         sendCtrlAltDel,
         focus,
         blur,
-        machineShutDown,
+        machineShutdown,
         machineReboot,
         machineReset,
         clipboardPaste,
