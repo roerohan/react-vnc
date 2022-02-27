@@ -1,3 +1,10 @@
+## [0.4.2](https://github.com/roerohan/react-vnc/compare/v0.4.1...v0.4.2) (2022-02-27)
+
+
+### Bug Fixes
+
+* **funding:** update funding.yml ([b4488f8](https://github.com/roerohan/react-vnc/commit/b4488f83aa238f9bd9b14631903952a17fdc8e52))
+
 ## [0.4.1](https://github.com/roerohan/react-vnc/compare/v0.4.0...v0.4.1) (2022-02-26)
 
 
