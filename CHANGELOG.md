@@ -1,3 +1,10 @@
+## [0.4.4](https://github.com/roerohan/react-vnc/compare/v0.4.3...v0.4.4) (2022-02-27)
+
+
+### Bug Fixes
+
+* **pr-template:** added PR template ([4a618fe](https://github.com/roerohan/react-vnc/commit/4a618fedf07fa75756b9fe762bdfc89ac3eb9f15))
+
 ## [0.4.3](https://github.com/roerohan/react-vnc/compare/v0.4.2...v0.4.3) (2022-02-27)
 
 
