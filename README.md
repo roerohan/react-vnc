@@ -154,7 +154,11 @@ interface Props {
   onConnect?: (rfb?: RFB) => void;
   onDisconnect?: (rfb?: RFB) => void;
   onCredentialsRequired?: (rfb?: RFB) => void;
+  onSecurityFailure?: (e?: { detail: { status: number, reason: string } }) => void;
+  onClipboard?: (e?: { detail: { text: string } }) => void;
+  onBell?: () => void;
   onDesktopName?: (e?: { detail: { name: string } }) => void;
+  onCapabilities?: (e?: { detail: { capabilities: RFB["capabilities"] } }) => void;
 }
 
 // The rfbOptions object in Props is of type Partial<RFBOptions>
