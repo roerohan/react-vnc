@@ -1,3 +1,10 @@
+# [0.5.0](https://github.com/roerohan/react-vnc/compare/v0.4.4...v0.5.0) (2022-02-27)
+
+
+### Features
+
+* **imperativeHandles:** implemented noVNC RFB methods ([#28](https://github.com/roerohan/react-vnc/issues/28)) ([1c8c234](https://github.com/roerohan/react-vnc/commit/1c8c234cc5071e324bf37653ddb4b057284c914f))
+
 ## [0.4.4](https://github.com/roerohan/react-vnc/compare/v0.4.3...v0.4.4) (2022-02-27)
 
 
