@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/react-vnc/static/css/main.5e3647ae.chunk.css",
-    "main.js": "/react-vnc/static/js/main.f7292428.chunk.js",
-    "runtime-main.js": "/react-vnc/static/js/runtime-main.71a73738.js",
-    "static/js/2.6f6b1d31.chunk.js": "/react-vnc/static/js/2.6f6b1d31.chunk.js",
-    "static/js/3.96ad90dc.chunk.js": "/react-vnc/static/js/3.96ad90dc.chunk.js",
+    "main.js": "/react-vnc/static/js/main.d1b00e73.chunk.js",
+    "runtime-main.js": "/react-vnc/static/js/runtime-main.f451ffe4.js",
+    "static/js/2.adfe0282.chunk.js": "/react-vnc/static/js/2.adfe0282.chunk.js",
+    "static/js/3.68d1f033.chunk.js": "/react-vnc/static/js/3.68d1f033.chunk.js",
     "index.html": "/react-vnc/index.html",
-    "static/js/2.6f6b1d31.chunk.js.LICENSE.txt": "/react-vnc/static/js/2.6f6b1d31.chunk.js.LICENSE.txt"
+    "static/js/2.adfe0282.chunk.js.LICENSE.txt": "/react-vnc/static/js/2.adfe0282.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.71a73738.js",
-    "static/js/2.6f6b1d31.chunk.js",
+    "static/js/runtime-main.f451ffe4.js",
+    "static/js/2.adfe0282.chunk.js",
     "static/css/main.5e3647ae.chunk.css",
-    "static/js/main.f7292428.chunk.js"
+    "static/js/main.d1b00e73.chunk.js"
   ]
 }
