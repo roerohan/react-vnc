@@ -1,3 +1,10 @@
+## [0.5.2](https://github.com/roerohan/react-vnc/compare/v0.5.1...v0.5.2) (2022-07-30)
+
+
+### Bug Fixes
+
+* update documentation for ref ([#37](https://github.com/roerohan/react-vnc/issues/37)) ([3bbe643](https://github.com/roerohan/react-vnc/commit/3bbe6434388f1312c68cde584f1b56bb2168535a))
+
 ## [0.5.1](https://github.com/roerohan/react-vnc/compare/v0.5.0...v0.5.1) (2022-06-14)
 
 
