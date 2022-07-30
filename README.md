@@ -108,10 +108,12 @@ npm run build:lib
 A `VncScreen` component is exposed from the library, to which you can pass the required and optional props. For example,
 
 ```ts
-import React from 'react';
+import React, { useRef } from 'react';
 import { VncScreen } from 'react-vnc';
 
 function App() {
+  const ref = useRef();
+
   return (
     <VncScreen
       url='ws://your-vnc-url.com'
