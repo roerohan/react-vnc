@@ -1,3 +1,26 @@
+## [0.5.5](https://github.com/roerohan/react-vnc/compare/v0.5.4...v0.5.5) (2022-11-21)
+
+
+### Bug Fixes
+
+* **submodules:** submodules were updated ([baf8dcf](https://github.com/roerohan/react-vnc/commit/baf8dcfa2ff50b2fa9f0be1db49bfd9222cea2b4))
+* **submodules:** submodules were updated ([207a519](https://github.com/roerohan/react-vnc/commit/207a5191abcbdaee36c1541ad7a7e5bf86a50657))
+* **submodules:** submodules were updated ([36601ee](https://github.com/roerohan/react-vnc/commit/36601ee6a20e6adb7559bfd875a7f2f0e7186f44))
+* **submodules:** submodules were updated ([f9b6e6b](https://github.com/roerohan/react-vnc/commit/f9b6e6b2a2dcc23fe3b2c4fe0cea14ea19359d77))
+* **submodules:** submodules were updated ([9c39b07](https://github.com/roerohan/react-vnc/commit/9c39b070535acf10c637a36c1f2c0c282ee00440))
+* **submodules:** submodules were updated ([3172623](https://github.com/roerohan/react-vnc/commit/3172623186bb4f3ac76ff8094f1cbb189feba291))
+* **submodules:** submodules were updated ([ba32bb0](https://github.com/roerohan/react-vnc/commit/ba32bb0a410cfee3cc9018352dd7973ea21a7dcc))
+* **submodules:** submodules were updated ([582e268](https://github.com/roerohan/react-vnc/commit/582e268513a2a036932b098c37b729f56a3c2089))
+* **submodules:** submodules were updated ([d65c14f](https://github.com/roerohan/react-vnc/commit/d65c14fbebe726fd8c584a8cafb856619d6d3e46))
+* **submodules:** submodules were updated ([743cab7](https://github.com/roerohan/react-vnc/commit/743cab7ff17fe2503eb8f1c194a39fa6c723824e))
+* **submodules:** submodules were updated ([a72e189](https://github.com/roerohan/react-vnc/commit/a72e18946998bc2a7b3cc105809813f01e55a28f))
+* **submodules:** submodules were updated ([1383a14](https://github.com/roerohan/react-vnc/commit/1383a14c66d98506eb4be6e013355c6d467726f1))
+* **submodules:** submodules were updated ([9ebaf64](https://github.com/roerohan/react-vnc/commit/9ebaf64853bb4d360ff97e89903ec287f8a2fa58))
+* **submodules:** submodules were updated ([fbca6be](https://github.com/roerohan/react-vnc/commit/fbca6be87ae6d65fd74e5bb66a7113a603d32002))
+* **submodules:** submodules were updated ([1075542](https://github.com/roerohan/react-vnc/commit/1075542f6241ab13b25bdb7b0612bf81ab6e27de))
+* **submodules:** submodules were updated ([fc3e61d](https://github.com/roerohan/react-vnc/commit/fc3e61da4fa027a5120472b221dc4e6333975821))
+* **submodules:** submodules were updated ([1034880](https://github.com/roerohan/react-vnc/commit/10348800c1880f163ec1f432e79445fc5308e8d4))
+
 ## [0.5.4](https://github.com/roerohan/react-vnc/compare/v0.5.3...v0.5.4) (2022-09-19)
 
 
