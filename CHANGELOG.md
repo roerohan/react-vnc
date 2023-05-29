@@ -1,3 +1,11 @@
+## [0.5.10](https://github.com/roerohan/react-vnc/compare/v0.5.9...v0.5.10) (2023-05-29)
+
+
+### Bug Fixes
+
+* **submodules:** submodules were updated ([da59e5a](https://github.com/roerohan/react-vnc/commit/da59e5a5b5aae0cce7a34a1dc7cc808614a57887))
+* **submodules:** submodules were updated ([2227ff6](https://github.com/roerohan/react-vnc/commit/2227ff6f8ad4cf515410c7de8e1558b86bafede3))
+
 ## [0.5.9](https://github.com/roerohan/react-vnc/compare/v0.5.8...v0.5.9) (2023-05-09)
 
 
