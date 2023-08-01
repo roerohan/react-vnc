@@ -1,3 +1,10 @@
+## [0.5.14](https://github.com/roerohan/react-vnc/compare/v0.5.13...v0.5.14) (2023-08-01)
+
+
+### Bug Fixes
+
+* wsProtocols should take string|string[] ([#47](https://github.com/roerohan/react-vnc/issues/47)) ([4235cce](https://github.com/roerohan/react-vnc/commit/4235cced687c0bd44a709bd2f0224d656dd0be0e))
+
 ## [0.5.13](https://github.com/roerohan/react-vnc/compare/v0.5.12...v0.5.13) (2023-08-01)
 
 
