@@ -15,7 +15,7 @@ export interface RFBOptions {
         target?: string;
     };
     repeaterID: string;
-    wsProtocols: string;
+    wsProtocols: string | string[];
 }
 
 export interface Props {
