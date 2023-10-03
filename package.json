@@ -1,6 +1,6 @@
 {
   "name": "react-vnc",
-  "version": "0.5.15",
+  "version": "0.5.16",
   "description": "A React Component to connect to a websockified VNC client using noVNC.",
   "author": "roerohan",
   "license": "MIT",
