@@ -1,3 +1,17 @@
+# [1.0.0](https://github.com/roerohan/react-vnc/compare/v0.5.16...v1.0.0) (2023-10-05)
+
+
+### Bug Fixes
+
+* create release v1 ([72de428](https://github.com/roerohan/react-vnc/commit/72de4280074bea37d1a64dcb837f33ce83fae97d))
+
+
+### BREAKING CHANGES
+
+* releasing version 1, there are no breaking changes as
+such. Using the phrase to trigger semantic release to bump the version
+to v1.
+
 ## [0.5.16](https://github.com/roerohan/react-vnc/compare/v0.5.15...v0.5.16) (2023-10-03)
 
 
