@@ -1,6 +1,6 @@
 {
-  "name": "react-vnc",
-  "version": "1.0.0",
+  "name": "react-vnc-ts5",
+  "version": "2.0.0",
   "description": "A React Component to connect to a websockified VNC client using noVNC.",
   "author": "roerohan",
   "license": "MIT",
@@ -94,7 +94,7 @@
     "rollup": "^2.44.0",
     "rollup-plugin-typescript2": "^0.32.1",
     "semantic-release": "^18.0.0",
-    "typescript": "^4.5.5"
+    "typescript": "^5.4.5"
   },
   "commitlint": {
     "extends": [
