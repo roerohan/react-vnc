@@ -35,6 +35,7 @@
     "url": "https://github.com/roerohan/react-vnc/issues"
   },
   "dependencies": {
+    "@rollup/plugin-typescript": "^11.1.6",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.5.2",
@@ -46,6 +47,9 @@
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^4.1.0"
+  },
+  "overrides": {
+    "typescript": "^5.4.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -92,7 +96,6 @@
     "husky": "^9.0.11",
     "is-ci": "^3.0.1",
     "rollup": "^4.18.0",
-    "rollup-plugin-typescript2": "^0.36.0",
     "semantic-release": "^24.0.0",
     "typescript": "^5.4.5"
   },
