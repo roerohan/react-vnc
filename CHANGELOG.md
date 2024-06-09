@@ -1,3 +1,37 @@
+# [2.0.0](https://github.com/roerohan/react-vnc/compare/v1.0.0...v2.0.0) (2024-06-09)
+
+
+### Bug Fixes
+
+* **submodules:** submodules were updated ([74804c9](https://github.com/roerohan/react-vnc/commit/74804c91767770fc3d5835146bfba6aab2103a7f))
+* **submodules:** submodules were updated ([e9020fd](https://github.com/roerohan/react-vnc/commit/e9020fdb40b2d8fee8ad381d8f803cd0466c865d))
+* **submodules:** submodules were updated ([ec90728](https://github.com/roerohan/react-vnc/commit/ec90728a965889df198a8e3a23c70061ac8abcb3))
+* **submodules:** submodules were updated ([808c76c](https://github.com/roerohan/react-vnc/commit/808c76ce49a305070578a1de3b70cba055050a26))
+* **submodules:** submodules were updated ([e2fb418](https://github.com/roerohan/react-vnc/commit/e2fb4189f8bef82e0d0c7a51cf9bab63c62041b4))
+* **submodules:** submodules were updated ([c198283](https://github.com/roerohan/react-vnc/commit/c1982830ced50c294d74a06ae1bfdfae554283ea))
+* **submodules:** submodules were updated ([4e6ddcf](https://github.com/roerohan/react-vnc/commit/4e6ddcfce65797fd1ee0d1a9e5bd9bc441f873ce))
+* **submodules:** submodules were updated ([225bd0b](https://github.com/roerohan/react-vnc/commit/225bd0bb6f30e7d00d1536b13f78afc582114d9e))
+* **submodules:** submodules were updated ([7050d70](https://github.com/roerohan/react-vnc/commit/7050d700248469ba307a2c153f4655a8e8f3d8c8))
+* **submodules:** submodules were updated ([25fbd61](https://github.com/roerohan/react-vnc/commit/25fbd61c098f4557a830c3a1e9b8e279b5ac0b5d))
+* **submodules:** submodules were updated ([70fc377](https://github.com/roerohan/react-vnc/commit/70fc37731e95e1e0145fcade2adb09dcaa7fdfd7))
+* **submodules:** submodules were updated ([86c63f2](https://github.com/roerohan/react-vnc/commit/86c63f233feaceaa8589dad5b138ccc7be2dbe24))
+* **submodules:** submodules were updated ([7a4b8f5](https://github.com/roerohan/react-vnc/commit/7a4b8f5eb3c3a8cb175a2ef2f7c4af7445d074ac))
+* **submodules:** submodules were updated ([a229dd2](https://github.com/roerohan/react-vnc/commit/a229dd2a4d3a22138e010e2546cba2cb0c75baac))
+* **submodules:** submodules were updated ([7105728](https://github.com/roerohan/react-vnc/commit/71057281586bae9ed6c09d30fb0b952f15c56cfd))
+* update configuration files ([a255ed3](https://github.com/roerohan/react-vnc/commit/a255ed3c241eedc2cf0d2e5fcc10a1e6bb9e8f16))
+* update workflow versions in actions ([cf4b243](https://github.com/roerohan/react-vnc/commit/cf4b243da0e8e86f4c5d15440b89db1b6444b734))
+
+
+### Features
+
+* update all dependencies ([1539e24](https://github.com/roerohan/react-vnc/commit/1539e24db7e80da738c9c917be869c5f1fe4562c))
+
+
+### BREAKING CHANGES
+
+* This package will not work for older versions of node
+* Updating all dependencies, added node v20 support
+
 # [1.0.0](https://github.com/roerohan/react-vnc/compare/v0.5.16...v1.0.0) (2023-10-05)
 
 
