@@ -1,17 +1,12 @@
 {
   "files": {
-    "main.css": "/react-vnc/static/css/main.5e3647ae.chunk.css",
-    "main.js": "/react-vnc/static/js/main.85e423ab.chunk.js",
-    "runtime-main.js": "/react-vnc/static/js/runtime-main.a203c9c9.js",
-    "static/js/2.45b17496.chunk.js": "/react-vnc/static/js/2.45b17496.chunk.js",
-    "static/js/3.c5c3ede0.chunk.js": "/react-vnc/static/js/3.c5c3ede0.chunk.js",
-    "index.html": "/react-vnc/index.html",
-    "static/js/2.45b17496.chunk.js.LICENSE.txt": "/react-vnc/static/js/2.45b17496.chunk.js.LICENSE.txt"
+    "main.css": "/react-vnc/static/css/main.9a71fbc5.css",
+    "main.js": "/react-vnc/static/js/main.1ea9ec60.js",
+    "static/js/685.124ec84c.chunk.js": "/react-vnc/static/js/685.124ec84c.chunk.js",
+    "index.html": "/react-vnc/index.html"
   },
   "entrypoints": [
-    "static/js/runtime-main.a203c9c9.js",
-    "static/js/2.45b17496.chunk.js",
-    "static/css/main.5e3647ae.chunk.css",
-    "static/js/main.85e423ab.chunk.js"
+    "static/css/main.9a71fbc5.css",
+    "static/js/main.1ea9ec60.js"
   ]
 }
