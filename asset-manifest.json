@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/react-vnc/static/css/main.9a71fbc5.css",
-    "main.js": "/react-vnc/static/js/main.1ea9ec60.js",
+    "main.js": "/react-vnc/static/js/main.976cdba6.js",
     "static/js/685.124ec84c.chunk.js": "/react-vnc/static/js/685.124ec84c.chunk.js",
     "index.html": "/react-vnc/index.html"
   },
   "entrypoints": [
     "static/css/main.9a71fbc5.css",
-    "static/js/main.1ea9ec60.js"
+    "static/js/main.976cdba6.js"
   ]
 }
