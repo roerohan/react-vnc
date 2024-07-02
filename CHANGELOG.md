@@ -1,3 +1,12 @@
+## [2.0.2](https://github.com/roerohan/react-vnc/compare/v2.0.1...v2.0.2) (2024-07-02)
+
+
+### Bug Fixes
+
+* add types to exports to avoid typescript error in import ([5147009](https://github.com/roerohan/react-vnc/commit/5147009b8d9c0080865a04eb98d9b7526457d2eb))
+* **submodules:** submodules were updated ([33a7c86](https://github.com/roerohan/react-vnc/commit/33a7c86d1da270bdd3879aa2e7dd26b27026451f))
+* **submodules:** submodules were updated ([0b26f86](https://github.com/roerohan/react-vnc/commit/0b26f863bfac8d7e68fe2abe3509472ec2c5d690))
+
 ## [2.0.1](https://github.com/roerohan/react-vnc/compare/v2.0.0...v2.0.1) (2024-06-10)
 
 
