@@ -14,6 +14,7 @@ const {
 	"@types/react": typesReact,
 	"@types/react-dom": typesReactDom,
 	"web-vitals": webVitals,
+	"@rollup/plugin-typescript": rollupTypescriptPlugin,
 	...dependencies
 } = pkg.dependencies;
 
