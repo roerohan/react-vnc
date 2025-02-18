@@ -40,6 +40,7 @@ export interface Props {
     onConnect?: (rfb?: RFB) => void;
     onDisconnect?: (rfb?: RFB) => void;
     onCredentialsRequired?: (rfb?: RFB) => void;
+    onServerVerification?: (e: { detail: { type: string, publickey: Uint8Array } }, rfb: RFB | undefined) => void;
     onSecurityFailure?: (e?: { detail: { status: number, reason: string } }) => void;
     onClipboard?: (e?: { detail: { text: string } }) => void;
     onBell?: () => void;
@@ -51,6 +52,7 @@ export enum Events {
     connect,
     disconnect,
     credentialsrequired,
+    serververification,
     securityfailure,
     clipboard,
     bell,
@@ -112,6 +114,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         onBell,
         onDesktopName,
         onCapabilities,
+        onServerVerification,
     } = props;
 
     const logger = {
@@ -187,6 +190,21 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         logger.info(`Desktop name is ${e.detail.name}`);
     };
 
+    const _onServerVerification = async (e: { detail: { type: string, publickey: Uint8Array } }) => {
+        const rfb = getRfb();
+        if (onServerVerification) {
+            onServerVerification(e, rfb ?? undefined);
+            return;
+        }
+
+        if (e.detail.type === 'RSA') {
+            const fingerprint = await window.crypto.subtle.digest("SHA-1", e.detail.publickey)
+            logger.info(`Fingerprint is ${Array.from(new Uint8Array(fingerprint).slice(0, 8)).map(
+                x => x.toString(16).padStart(2, '0')).join('-')}`);
+            rfb?.approveServer();
+        }
+    };
+
     const disconnect = () => {
         const rfb = getRfb();
         try {
@@ -250,6 +268,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
             eventListeners.current.bell = onBell;
             eventListeners.current.desktopname = _onDesktopName;
             eventListeners.current.capabilities = onCapabilities;
+            eventListeners.current.serververification = _onServerVerification;
 
             (Object.keys(eventListeners.current) as (keyof typeof Events)[]).forEach((event) => {
                 if (eventListeners.current[event]) {
