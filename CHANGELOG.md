@@ -1,3 +1,10 @@
+## [3.0.6](https://github.com/roerohan/react-vnc/compare/v3.0.5...v3.0.6) (2025-02-24)
+
+
+### Bug Fixes
+
+* externalize react ([b536f0f](https://github.com/roerohan/react-vnc/commit/b536f0fc9c101ba703f042f5a85bd26a64d0ff64))
+
 ## [3.0.5](https://github.com/roerohan/react-vnc/compare/v3.0.4...v3.0.5) (2025-02-24)
 
 
