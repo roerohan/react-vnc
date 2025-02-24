@@ -1,3 +1,10 @@
+## [3.0.3](https://github.com/roerohan/react-vnc/compare/v3.0.2...v3.0.3) (2025-02-24)
+
+
+### Bug Fixes
+
+* include types ([30a3960](https://github.com/roerohan/react-vnc/commit/30a39604c121b932350855f9eb44f302f9b3ce8f))
+
 ## [3.0.2](https://github.com/roerohan/react-vnc/compare/v3.0.1...v3.0.2) (2025-02-24)
 
 
