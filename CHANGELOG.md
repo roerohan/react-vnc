@@ -1,3 +1,10 @@
+## [3.0.4](https://github.com/roerohan/react-vnc/compare/v3.0.3...v3.0.4) (2025-02-24)
+
+
+### Bug Fixes
+
+* remove npmignore to publish only dist ([fa9011d](https://github.com/roerohan/react-vnc/commit/fa9011d69da89be24cdf6033f62d7ab0018099ca))
+
 ## [3.0.3](https://github.com/roerohan/react-vnc/compare/v3.0.2...v3.0.3) (2025-02-24)
 
 
