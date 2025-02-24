@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/roerohan/react-vnc/compare/v3.0.0...v3.0.1) (2025-02-24)
+
+
+### Bug Fixes
+
+* update prepublish to cjs ([364bb5f](https://github.com/roerohan/react-vnc/commit/364bb5f0f76059f98d20a04395eca4deda8ecff8))
+
 # [3.0.0](https://github.com/roerohan/react-vnc/compare/v2.0.3...v3.0.0) (2025-02-24)
 
 
