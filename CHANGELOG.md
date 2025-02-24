@@ -1,3 +1,18 @@
+## [2.0.3](https://github.com/roerohan/react-vnc/compare/v2.0.2...v2.0.3) (2025-02-24)
+
+
+### Bug Fixes
+
+* **submodules:** submodules were updated ([e4ca572](https://github.com/roerohan/react-vnc/commit/e4ca5720788d7a9bc7f097dbdff89102970d8d37))
+* **submodules:** submodules were updated ([bf50b94](https://github.com/roerohan/react-vnc/commit/bf50b944446e0e5c2a2e9e4961a18a3e9ddf3bd2))
+* **submodules:** submodules were updated ([8538b5d](https://github.com/roerohan/react-vnc/commit/8538b5d3a1422705956ab86c1dabd501cfe7db49))
+* **submodules:** submodules were updated ([09ab457](https://github.com/roerohan/react-vnc/commit/09ab45796ece77bec9a6d13f0dc803872c9555a8))
+* **submodules:** submodules were updated ([9db9c05](https://github.com/roerohan/react-vnc/commit/9db9c05903d2739c7bcbbd33c750703310586d52))
+* **submodules:** submodules were updated ([d50c8c5](https://github.com/roerohan/react-vnc/commit/d50c8c58f9087fd587a4c9200251bf5e79b17aa5))
+* **submodules:** submodules were updated ([8527c9f](https://github.com/roerohan/react-vnc/commit/8527c9f51a2e0e951dbdfcc746011744ec4dc202))
+* **submodules:** submodules were updated ([2bf57ea](https://github.com/roerohan/react-vnc/commit/2bf57eabba185e2144b987b803b421bc4cc3a5c7))
+* update dep versions ([7235abd](https://github.com/roerohan/react-vnc/commit/7235abdef55f1b4519960fdeb3bc529968fc1acd))
+
 ## [2.0.2](https://github.com/roerohan/react-vnc/compare/v2.0.1...v2.0.2) (2024-07-02)
 
 
