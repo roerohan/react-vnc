@@ -1,3 +1,25 @@
+# [3.0.0](https://github.com/roerohan/react-vnc/compare/v2.0.3...v3.0.0) (2025-02-24)
+
+
+* Merge pull request [#63](https://github.com/roerohan/react-vnc/issues/63) from roerohan/feat-react-19 ([44040fc](https://github.com/roerohan/react-vnc/commit/44040fc14c13ebd2951636c035c589824cbe886e))
+
+
+### Bug Fixes
+
+* remove rollup dep ([cec8373](https://github.com/roerohan/react-vnc/commit/cec8373184fed63aee9b3d390f11d45055c5d247))
+* update husky config, remove rollup ([80a3dae](https://github.com/roerohan/react-vnc/commit/80a3dae4336f1eab15ea4aa69708018bd7376724))
+
+
+### Features
+
+* **react-19:** added support for react 19 ([d716043](https://github.com/roerohan/react-vnc/commit/d7160439cb3142324f9348c5add1b14b4241d9de))
+
+
+### BREAKING CHANGES
+
+* feat: added support for react 19
+* **react-19:** this will not work with older versions of react
+
 ## [2.0.3](https://github.com/roerohan/react-vnc/compare/v2.0.2...v2.0.3) (2025-02-24)
 
 
