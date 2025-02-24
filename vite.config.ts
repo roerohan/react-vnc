@@ -33,6 +33,15 @@ export default defineConfig(({ mode }) => {
         name: 'ReactVnc',
         formats: ['es', 'umd'],
       },
+      rollupOptions: {
+        external: ['react', 'react-dom'],
+        output: {
+          globals: {
+            react: 'React',
+            'react-dom': 'ReactDom',
+          }
+        }
+      },
       copyPublicDir: false,
     }
   }
