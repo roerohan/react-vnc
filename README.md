@@ -134,46 +134,39 @@ export default App;
 The only `required` parameter is `url`, which must be a `ws://` or a `wss://` (websocket) URL for the library to function properly. noVNC can display only websocket URLs. All other props to `VncScreen` are optional. The following is a list (an interface) of all props along with their types.
 
 ```ts
+type EventListeners = { [T in NoVncEventType]?: (event: NoVncEvents[T]) => void };
+
 interface Props {
-  url: string;
-  style?: object;
-  className?: string;
-  viewOnly?: boolean;
-  rfbOptions?: Partial<RFBOptions>;
-  focusOnClick?: boolean;
-  clipViewport?: boolean;
-  dragViewport?: boolean;
-  scaleViewport?: boolean;
-  resizeSession?: boolean;
-  showDotCursor?: boolean;
-  background?: string;
-  qualityLevel?: number;
-  compressionLevel?: number;
-  autoConnect?: number; // defaults to true
-  retryDuration?: number; // in milliseconds
-  debug?: boolean; // show logs in the console
-  loadingUI?: React.ReactNode; // custom component that is displayed when loading
-  onConnect?: (rfb?: RFB) => void;
-  onDisconnect?: (rfb?: RFB) => void;
-  onCredentialsRequired?: (rfb?: RFB) => void;
-  onSecurityFailure?: (e?: { detail: { status: number, reason: string } }) => void;
-  onClipboard?: (e?: { detail: { text: string } }) => void;
-  onBell?: () => void;
-  onDesktopName?: (e?: { detail: { name: string } }) => void;
-  onCapabilities?: (e?: { detail: { capabilities: RFB["capabilities"] } }) => void;
+    url: string;
+    style?: object;
+    className?: string;
+    viewOnly?: boolean;
+    rfbOptions?: Partial<NoVncOptions>;
+    focusOnClick?: boolean;
+    clipViewport?: boolean;
+    dragViewport?: boolean;
+    scaleViewport?: boolean;
+    resizeSession?: boolean;
+    showDotCursor?: boolean;
+    background?: string;
+    qualityLevel?: number;
+    compressionLevel?: number;
+    autoConnect?: boolean;
+    retryDuration?: number;
+    debug?: boolean;
+    loadingUI?: React.ReactNode;
+    onConnect?: EventListeners['connect'];
+    onDisconnect?: EventListeners['disconnect'];
+    onCredentialsRequired?: EventListeners['credentialsrequired'];
+    onSecurityFailure?: EventListeners['securityfailure'];
+    onClipboard?: EventListeners['clipboard'];
+    onBell?: EventListeners['bell'];
+    onDesktopName?: EventListeners['desktopname'];
+    onCapabilities?: EventListeners['capabilities'];
 }
 
-// The rfbOptions object in Props is of type Partial<RFBOptions>
-interface RFBOptions {
-    shared: boolean;
-    credentials: {
-        username?: string;
-        password?: string;
-        target?: string;
-    };
-    repeaterID: string;
-    wsProtocols: string | string[];
-}
+// The types NoVncOptions, NoVncEventType and NoVncEvents are from the
+// @novnc/novnc library.
 ```
 
 To know more about these props, check out [API.md](https://github.com/novnc/noVNC/blob/master/docs/API.md#properties).
