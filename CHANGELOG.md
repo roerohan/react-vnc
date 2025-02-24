@@ -1,3 +1,10 @@
+## [3.0.5](https://github.com/roerohan/react-vnc/compare/v3.0.4...v3.0.5) (2025-02-24)
+
+
+### Bug Fixes
+
+* update npmignore ([daece0a](https://github.com/roerohan/react-vnc/commit/daece0a376247ccbc8eefa990549d159378241d5))
+
 ## [3.0.4](https://github.com/roerohan/react-vnc/compare/v3.0.3...v3.0.4) (2025-02-24)
 
 
