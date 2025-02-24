@@ -1,3 +1,10 @@
+## [3.0.7](https://github.com/roerohan/react-vnc/compare/v3.0.6...v3.0.7) (2025-02-24)
+
+
+### Bug Fixes
+
+* externalize react/jsx-runtime ([f5b1283](https://github.com/roerohan/react-vnc/commit/f5b128397ff0496f90efbe9c240b556489bbe044))
+
 ## [3.0.6](https://github.com/roerohan/react-vnc/compare/v3.0.5...v3.0.6) (2025-02-24)
 
 
