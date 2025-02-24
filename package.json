@@ -45,13 +45,13 @@
   "scripts": {
     "dev": "vite",
     "start": "vite",
-    "build": "tsc -b && vite build",
-    "build:lib": "tsc -b && vite build",
+    "build": "vite build --mode=app",
+    "build:lib": "tsc -b && vite build --mode=lib",
     "lint": "eslint . --ext .ts --ext .js",
     "lint:fix": "npm run lint -- --fix",
     "prepare": "is-ci || husky install",
     "prepack": "npm run build:lib",
-    "prepublishOnly": "cp package.json package.json.bak && node prepublish.js",
+    "prepublishOnly": "cp package.json package.json.bak && node prepublish.cjs",
     "postpublish": "mv package.json.bak package.json",
     "submodule": "git submodule update --init --recursive"
   },
