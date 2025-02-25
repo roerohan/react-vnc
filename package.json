@@ -53,8 +53,7 @@
     "prepare": "is-ci || husky install",
     "prepack": "npm run build:lib",
     "prepublishOnly": "cp package.json package.json.bak && node prepublish.cjs",
-    "postpublish": "mv package.json.bak package.json",
-    "submodule": "git submodule update --init --recursive"
+    "postpublish": "mv package.json.bak package.json"
   },
   "eslintConfig": {
     "extends": [
