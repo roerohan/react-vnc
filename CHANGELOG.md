@@ -1,3 +1,10 @@
+## [3.0.8](https://github.com/roerohan/react-vnc/compare/v3.0.7...v3.0.8) (2025-03-31)
+
+
+### Bug Fixes
+
+* remove outer div to give more control over component ([e1e134d](https://github.com/roerohan/react-vnc/commit/e1e134d6c3d47db0b78b445be01e86523c5d9b54))
+
 ## [3.0.7](https://github.com/roerohan/react-vnc/compare/v3.0.6...v3.0.7) (2025-02-24)
 
 
