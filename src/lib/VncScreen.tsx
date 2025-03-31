@@ -27,7 +27,6 @@ export interface Props {
     autoConnect?: boolean;
     retryDuration?: number;
     debug?: boolean;
-    loadingUI?: React.ReactNode;
     onConnect?: EventListeners['connect'];
     onDisconnect?: EventListeners['disconnect'];
     onCredentialsRequired?: EventListeners['credentialsrequired'];
@@ -52,6 +51,7 @@ export type VncScreenHandle = {
     machineReset: () => void;
     clipboardPaste: (text: string) => void;
     rfb: RFB | null;
+    loading: boolean;
     eventListeners: EventListeners;
 };
 
@@ -81,7 +81,6 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         autoConnect = true,
         retryDuration = 3000,
         debug = false,
-        loadingUI,
         onConnect,
         onDisconnect,
         onCredentialsRequired,
@@ -305,6 +304,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         machineReset,
         clipboardPaste,
         rfb: rfb.current,
+        loading,
         eventListeners: eventListeners.current,
     }));
 
@@ -342,16 +342,13 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
     };
 
     return (
-        <div>
-            <div
-                style={style}
-                className={className}
-                ref={screen}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-            />
-            {loading && (loadingUI ?? <div className="text-white loading">Loading...</div>)}
-        </div>
+        <div
+            style={style}
+            className={className}
+            ref={screen}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        />
     );
 }
 

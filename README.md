@@ -154,7 +154,6 @@ interface Props {
     autoConnect?: boolean;
     retryDuration?: number;
     debug?: boolean;
-    loadingUI?: React.ReactNode;
     onConnect?: EventListeners['connect'];
     onDisconnect?: EventListeners['disconnect'];
     onCredentialsRequired?: EventListeners['credentialsrequired'];
@@ -172,6 +171,27 @@ interface Props {
 To know more about these props, check out [API.md](https://github.com/novnc/noVNC/blob/master/docs/API.md#properties).
 
 You can pass a `ref` to the `VncScreen` component, and access the `connect()` and `disconnect()` methods from the library. Check out [#18](https://github.com/roerohan/react-vnc/issues/18) for more details.
+
+The `ref` object has the following type:
+```ts
+type VncScreenHandle = {
+    connect: () => void;
+    disconnect: () => void;
+    connected: boolean;
+    sendCredentials: (credentials: NoVncOptions["credentials"]) => void;
+    sendKey: (keysym: number, code: string, down?: boolean) => void;
+    sendCtrlAltDel: () => void;
+    focus: () => void;
+    blur: () => void;
+    machineShutdown: () => void;
+    machineReboot: () => void;
+    machineReset: () => void;
+    clipboardPaste: (text: string) => void;
+    rfb: RFB | null;
+    loading: boolean;
+    eventListeners: EventListeners;
+};
+```
 
 The `onConnect`, `onDisconnect`, `onCredentialsRequired`, and `onDesktopName` props are optional, and there are existing defaults set for them. For example, the default `onDisconnect` function consists of some logic to retry connecting after a certain timeout (specified by `retryDuration`). Check out the default `_onConnect` and `_onDisconnect` functions in [VncScreen.tsx](./src/lib/VncScreen.tsx) for more details.
 
