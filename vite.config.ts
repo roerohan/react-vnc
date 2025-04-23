@@ -3,6 +3,8 @@ import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts';
 import { resolve } from 'path';
 
+const base = process.env.BASE_URL ?? '';
+
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   if (mode === 'app') {
@@ -16,7 +18,8 @@ export default defineConfig(({ mode }) => {
       publicDir: 'public/',
       build: {
         outDir: 'build',
-      }
+      },
+      base,
     }
   }
   return {

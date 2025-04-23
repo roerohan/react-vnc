@@ -25,6 +25,7 @@ jobs:
           npm run build
         env:
           REACT_APP_BASE_URL: ${{ secrets.BACKEND_URL }}
+          BASE_URL: "/react-vnc"
 
       - name: Deploy to github.io
         uses: JamesIves/github-pages-deploy-action@v4
