@@ -115,6 +115,16 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         connected.current = state;
     };
 
+    const refocusCanvasOnCaptureElem = () => {
+        const canvas = document.querySelector('canvas');
+        canvas?.addEventListener('mouseleave', (e: MouseEvent) => {
+            const toElement = e.relatedTarget as HTMLElement | null;
+            if (toElement && toElement.id === 'noVNC_mouse_capture_elem') {
+                canvas.focus();
+            }
+        });
+    };
+
     const _onConnect = (e: NoVncEvents['connect']) => {
         if (onConnect) {
             onConnect(e);
@@ -238,6 +248,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
             });
 
             setConnected(true);
+            refocusCanvasOnCaptureElem();
         } catch (err) {
             logger.error(err);
         }
