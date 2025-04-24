@@ -35,6 +35,7 @@ export interface Props {
     onBell?: EventListeners['bell'];
     onDesktopName?: EventListeners['desktopname'];
     onCapabilities?: EventListeners['capabilities'];
+    onClippingViewport?: EventListeners['clippingviewport'];
 }
 
 export type VncScreenHandle = {
@@ -89,6 +90,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         onBell,
         onDesktopName,
         onCapabilities,
+        onClippingViewport,
     } = props;
 
     const logger = {
@@ -227,6 +229,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
             eventListeners.current.bell = onBell;
             eventListeners.current.desktopname = _onDesktopName;
             eventListeners.current.capabilities = onCapabilities;
+            eventListeners.current.clippingviewport = onClippingViewport;
 
             (Object.keys(eventListeners.current) as (NoVncEventType)[]).forEach((event) => {
                 if (eventListeners.current[event]) {
