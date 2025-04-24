@@ -162,6 +162,7 @@ interface Props {
     onBell?: EventListeners['bell'];
     onDesktopName?: EventListeners['desktopname'];
     onCapabilities?: EventListeners['capabilities'];
+    onClippingViewport?: EventListeners['clippingviewport'];
 }
 
 // The types NoVncOptions, NoVncEventType and NoVncEvents are from the
