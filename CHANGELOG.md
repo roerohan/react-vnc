@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/roerohan/react-vnc/compare/v3.0.8...v3.1.0) (2025-04-24)
+
+
+### Features
+
+* add new event "onClippingViewport" ([5270246](https://github.com/roerohan/react-vnc/commit/5270246108a599eac3fdac7d954ea2798900991f))
+
 ## [3.0.8](https://github.com/roerohan/react-vnc/compare/v3.0.7...v3.0.8) (2025-03-31)
 
 
