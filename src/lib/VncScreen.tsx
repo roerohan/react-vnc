@@ -1,5 +1,6 @@
 import React, {
     forwardRef,
+    MouseEventHandler,
     useEffect,
     useImperativeHandle,
     useRef,
@@ -37,6 +38,8 @@ export interface Props {
     onDesktopName?: EventListeners['desktopname'];
     onCapabilities?: EventListeners['capabilities'];
     onClippingViewport?: EventListeners['clippingviewport'];
+    onChildMouseLeave?: MouseEventHandler<HTMLDivElement>;
+    onChildMouseEnter?: MouseEventHandler<HTMLDivElement>;
 }
 
 export type VncScreenHandle = {
@@ -84,6 +87,8 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         autoConnect = true,
         retryDuration = 3000,
         debug = false,
+        onChildMouseLeave,
+        onChildMouseEnter,
         onConnect,
         onDisconnect,
         onCredentialsRequired,
@@ -334,7 +339,7 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         rfb.focus();
     };
 
-    const handleMouseEnter = () => {
+    const defaultHandleMouseEnter = () => {
         if (document.activeElement && document.activeElement instanceof HTMLElement) {
             document.activeElement.blur();
         }
@@ -342,12 +347,21 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
         handleClick();
     };
 
-    const handleMouseLeave = () => {
+    const defaultHandleMouseLeave = (e: React.MouseEvent<HTMLElement>) => {
+        // https://github.com/roerohan/react-vnc/issues/5#issuecomment-1753065170
+        // FIXME: We see spurious mouse leave events in Chrome when the user clicks
+        // on the canvas.
+        // This hack drops the mouseleave event if the target is the noVNC mouse capture element
+        if (
+            e.nativeEvent.relatedTarget &&
+            (e.nativeEvent.relatedTarget as HTMLElement).id == "noVNC_mouse_capture_elem"
+        ) {
+            return;
+        }
         const rfb = getRfb();
         if (!rfb) {
             return;
         }
-
         rfb.blur();
     };
 
@@ -356,8 +370,8 @@ const VncScreen: React.ForwardRefRenderFunction<VncScreenHandle, Props> = (props
             style={style}
             className={className}
             ref={screen}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            onMouseEnter={onChildMouseEnter ?? defaultHandleMouseEnter}
+            onMouseLeave={onChildMouseLeave ?? defaultHandleMouseLeave}
         />
     );
 }
