@@ -11,7 +11,7 @@ type EventListeners = { [T in NoVncEventType]?: (event: NoVncEvents[T]) => void 
 
 export interface Props {
     url?: string;
-    websocket?: WebSocket;
+    websocket?: WebSocket | RTCDataChannel;
     style?: object;
     className?: string;
     viewOnly?: boolean;
